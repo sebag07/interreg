@@ -1,0 +1,37 @@
+# Ignore WordPress core files and configuration
+wp-config.php
+wp-config-sample.php
+
+# Ignore uploaded content
+wp-content/uploads/
+
+# Ignore plugin and theme files you don’t develop
+wp-content/plugins/*
+!wp-content/plugins/your-custom-plugin/
+
+wp-content/themes/*
+!wp-content/themes/your-custom-theme/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs, debug files, and backups
+*.log
+*.sql
+*.tar.gz
+*.zip
+
+# Node modules and vendor folders
+node_modules/
+vendor/
+
+# Ignore Composer and package manager files if using
+composer.lock
+package-lock.json
+
+# Ignore IDE and editor files
+*.swp
+*.swo
+.idea/
+.vscode/
