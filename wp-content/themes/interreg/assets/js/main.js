@@ -91,13 +91,13 @@
     var heroSlider = new Swiper('.hero-slider-active.swiper-container', {
         slidesPerView: 1,
         speed: 1500,
-        watchSlidesProgress: true,
-        loop: true,
+        // watchSlidesProgress: true,
+        // loop: true,
         // autoplay: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+        // pagination: {
+        //     el: '.swiper-pagination',
+        //     clickable: true,
+        // },
        
     });
 
@@ -145,68 +145,88 @@
     /****************************************
      *   Client Logo - 6 Grids 1 Row
      *****************************************/
-    var client_logo_slider = new Swiper('.client-logo-slider .swiper-container', {
-        slidesPerView: 6,
-        autoplay: true,
-        speed: 1500,
-        loop: true,
-
-        breakpoints: {
-
-            0: {
-                slidesPerView: 2,
-            },
-            576: {
-                slidesPerView: 3,
-            },
-            768: {
+    var initClientLogoSlider = function() {
+        if ($('.client-logo-slider .swiper-container').length) {
+            var client_logo_slider = new Swiper('.client-logo-slider .swiper-container', {
                 slidesPerView: 4,
-            },
-            992: {
-                slidesPerView: 5,
-            },
-            1200: {
-                slidesPerView: 6,
-            },
-            1800: {
-                slidesPerView: 6,
-            }
-            
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                speed: 1500,
+                loop: true,
+                breakpoints: {
+                    0: {
+                        slidesPerView: 2,
+                    },
+                    576: {
+                        slidesPerView: 3,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                    },
+                    992: {
+                        slidesPerView: 4,
+                    },
+                    1200: {
+                        slidesPerView: 4,
+                    },
+                    1800: {
+                        slidesPerView: 4,
+                    }
+                }
+            });
         }
-    });
+    };
 
     /****************************************
      *   Blog Feed - 2 Grids 1 Row
      *****************************************/
-    var blog_feed_slider = new Swiper('.blog-feed-slider .swiper-container', {
-        slidesPerView: 2,
-        spaceBetween: 45,
-        speed: 1500,
-        loop: true,
-        autoplay: true,
-        breakpoints: {
-
-            0: {
-                slidesPerView: 1,
-            },
-            768: {
+    var initBlogFeedSlider = function() {
+        if ($('.blog-feed-slider .swiper-container').length) {
+            var blog_feed_slider = new Swiper('.blog-feed-slider .swiper-container', {
                 slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            992: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1200: {
-                slidesPerView: 1,
-            },
-            1400: {
-                slidesPerView: 2,
-            }
-            
+                spaceBetween: 45,
+                speed: 1500,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    992: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1200: {
+                        slidesPerView: 1,
+                    },
+                    1400: {
+                        slidesPerView: 2,
+                    }
+                }
+            });
         }
+    };
+
+    // Initialize when document is ready
+    $(document).ready(function() {
+        initClientLogoSlider();
+        initBlogFeedSlider();
     });
 
+    // Re-initialize on window load to ensure all assets are loaded
+    $(window).on('load', function() {
+        initClientLogoSlider();
+        initBlogFeedSlider();
+    });
 
     /************************************************
      * Counter Up
