@@ -188,7 +188,7 @@
                 slidesPerView: 2,
                 spaceBetween: 45,
                 speed: 1500,
-                loop: true,
+                // loop: true,
                 autoplay: {
                     delay: 3000,
                     disableOnInteraction: false,
