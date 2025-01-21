@@ -12,16 +12,16 @@
 
                         <ul class="footer-about">
                             <li>
-                                <div class="text"><span class="text-marker">Location:</span>Your address goes here.</div>
+                                <div class="text"><span class="text-marker">Location:</span>Piața Victoriei nr. 2, et. 1.</div>
                             </li>
                             <li>
-                                <div class="text"><span class="text-marker">Phone:</span><a href="tel:+0123456789">0123456789</a></div>
+                                <div class="text"><span class="text-marker">Phone:</span><a href="tel:+40256404509">0256 404 509</a></div>
                             </li>
                             <li>
-                                <div class="text"><span class="text-marker">Web:</span><a href="https://www.example.com">www.example.com</a></div>
+                                <div class="text"><span class="text-marker">Web:</span><a href="https://www.interreg.ro">https://www.interreg.ro</a></div>
                             </li>
                             <li>
-                                <div class="text"><span class="text-marker">Email:</span> <a href="mailto:demo@example.com">demo@example.com</a> </div>
+                                <div class="text"><span class="text-marker">Email:</span> <a href="mailto:nicoleta.nemes@upt.ro">nicoleta.nemes@upt.ro</a> </div>
                             </li>
                         </ul>
                     </div>
@@ -91,7 +91,7 @@
                 <div class="col-auto">
                     <div class="footer-bottom-left">
                         <div class="footer-copyright">
-                            <p class="copyright-text">&copy; 2023 <a href="index.html">Induste</a> Made with <i class="icofont-heart"></i> by <a href="https://hasthemes.com/" target="_blank">HasThemes</a> </p>
+                            <p class="copyright-text">&copy; 2025 <a href="index.html">Interreg</a> Made with <i class="icofont-heart"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a> </p>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             <li><a href="https://www.example.com" target="_blank">Facebook</a></li>
                             <li><a href="https://www.example.com" target="_blank">Twitter</a></li>
                             <li><a href="https://www.example.com" target="_blank">Instagram</a></li>
-                            <li><a href="https://www.example.com" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://www.example.com" target="_blank">Youtube</a></li>
                         </ul>
                     </div>
                 </div>
@@ -112,10 +112,10 @@
 </footer>
 <!-- .....:::::: End Footer Section :::::.... -->
 
+<!-- material-scrolltop button -->
+<button class="material-scrolltop" type="button"></button>
+
 </main>
 <?php wp_footer(); ?>
 </body>
 </html>
-
-<!-- material-scrolltop button -->
-<button class="material-scrolltop" type="button"></button>

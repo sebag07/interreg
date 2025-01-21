@@ -16974,7 +16974,7 @@ input, textarea {
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+          justify-content: start;
   padding: 40px 40px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -17026,6 +17026,9 @@ input, textarea {
   .service-single-item .icon {
     margin-right: 50px;
   }
+}
+.service-single-item .icon > img {
+  max-width: 150px;
 }
 .service-single-item .content .title {
   font-size: 25px;

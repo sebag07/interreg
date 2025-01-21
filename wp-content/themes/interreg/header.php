@@ -3,7 +3,8 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Interreg</title>
+	<title>Interreg - Environmental risk assessment from mining activities</title>
+    <meta name="description" content="Environmental risk assessment from mining activities as a result of tailings storage in the crossborder area Romania – Serbia"/>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -12,6 +13,7 @@
 	<p><?php bloginfo('description'); ?></p>
 	<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
 </header> -->
+
 <!-- .....:::::: Start Header Section :::::.... -->
 <header class="header-section d-none d-lg-block">
 
@@ -26,47 +28,65 @@
                     </div>
                     <!-- End Header Logo -->
                 </div>
+                <!-- For desktop menu -->
                 <div class="col-auto">
-                    <!-- Start Header Logo -->
-                    <ul class="header-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="has-dropdown">
-                            <a href="service-list.html">Service</a>
-                            <ul class="submenu">
-                                <li><a href="service-list.html">Services</a></li>
-                                <li><a href="service-details.html">Service Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-dropdown">
-                            <a href="project-list.html">Project</a>
-                            <ul class="submenu">
-                                <li><a href="project-list.html">Project</a></li>
-                                <li><a href="project-details.html">Project Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-dropdown">
-                            <a href="blog-list.html">Blog</a>
-                            <ul class="submenu">
-                                <li><a href="blog-list.html">Blog List Full Width</a></li>
-                                <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>
-                                <li><a href="blog-list-sidebar-right.html">Blog List Right Sidebar</a></li>
-                                <li><a href="blog-details.html">Blog Details Full Width</a></li>
-                                <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>
-                                <li><a href="blog-details-sidebar-right.html">Blog Details Right Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-dropdown">
-                            <a href="#">Pages</a>
-                            <ul class="submenu">
-                                <li><a href="404-page.html">404 Page</a></li>
-                                <li><a href="price.html">Price</a></li>
-                                <li><a href="about.html">About Us</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                    <!-- End Header Logo -->
+		            <?php
+		            add_filter('wp_nav_menu_args', function($args) {
+			            if($args['theme_location'] == 'primary-menu') {
+				            $args['menu_class'] = 'header-nav';
+				            $args['container'] = false;
+				            $args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
+				            $args['walker'] = new Walker_Nav_Menu();
+			            }
+			            return $args;
+		            });
+
+		            wp_nav_menu(array(
+			            'theme_location' => 'primary-menu'
+		            ));
+		            ?>
                 </div>
+<!--                <div class="col-auto">-->
+<!--                     Start Header Logo -->
+<!--                    <ul class="header-nav">-->
+<!--                        <li><a href="index.html">Home</a></li>-->
+<!--                        <li class="has-dropdown">-->
+<!--                            <a href="service-list.html">Service</a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="service-list.html">Services</a></li>-->
+<!--                                <li><a href="service-details.html">Service Details</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="has-dropdown">-->
+<!--                            <a href="project-list.html">Project</a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="project-list.html">Project</a></li>-->
+<!--                                <li><a href="project-details.html">Project Details</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="has-dropdown">-->
+<!--                            <a href="blog-list.html">Blog</a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="blog-list.html">Blog List Full Width</a></li>-->
+<!--                                <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>-->
+<!--                                <li><a href="blog-list-sidebar-right.html">Blog List Right Sidebar</a></li>-->
+<!--                                <li><a href="blog-details.html">Blog Details Full Width</a></li>-->
+<!--                                <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>-->
+<!--                                <li><a href="blog-details-sidebar-right.html">Blog Details Right Sidebar</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="has-dropdown">-->
+<!--                            <a href="#">Pages</a>-->
+<!--                            <ul class="submenu">-->
+<!--                                <li><a href="404-page.html">404 Page</a></li>-->
+<!--                                <li><a href="price.html">Price</a></li>-->
+<!--                                <li><a href="about.html">About Us</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li><a href="contact.html">Contact</a></li>-->
+<!--                    </ul>-->
+<!--                    End Header Logo -->
+<!--                </div>-->
                 <div class="col-auto">
                     <!-- Start Header Social Link -->
                     <ul class="social-link social-link-white">

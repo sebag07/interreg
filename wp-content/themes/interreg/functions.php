@@ -63,3 +63,20 @@ function load_jquery_in_header() {
 	wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'load_jquery_in_header', 1);
+
+register_nav_menus(array(
+	'primary-menu' => 'Primary Menu',
+	'mobile-menu' => 'Mobile Menu'
+));
+
+add_filter('nav_menu_css_class', function($classes, $item) {
+	// Add has-dropdown class if item has children
+	if(in_array('menu-item-has-children', $classes)) {
+		$classes[] = 'has-dropdown';
+	}
+	return $classes;
+}, 10, 2);
+
+add_filter('nav_menu_submenu_css_class', function($classes) {
+	return array('submenu');
+});
