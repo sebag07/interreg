@@ -57,12 +57,9 @@
                     <div class="footer-widget-single-item">
                         <h3 class="title">OUR SERVICES</h3>
                         <ul class="footer-nav">
-                            <li><a href="#">Energy & Utilities</a></li>
-                            <li><a href="#">Industrial Manufacturing</a></li>
-                            <li><a href="#">Industrial Automation</a></li>
-                            <li><a href="#">Mechanical Engineering</a></li>
-                            <li><a href="#">Industrial Construction</a></li>
-                            <li><a href="#">Oil & Gas Energy</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Services</a></li>
                         </ul>
                     </div>
                 </div>
@@ -70,12 +67,8 @@
                     <div class="footer-widget-single-item">
                         <h3 class="title">QUICK LINKS</h3>
                         <ul class="footer-nav">
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Management</a></li>
-                            <li><a href="#">Our Team</a></li>
-                            <li><a href="#">Career</a></li>
                             <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
                         </ul>
                     </div>
                 </div>

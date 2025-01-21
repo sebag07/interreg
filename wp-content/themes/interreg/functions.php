@@ -66,7 +66,8 @@ add_action('wp_enqueue_scripts', 'load_jquery_in_header', 1);
 
 register_nav_menus(array(
 	'primary-menu' => 'Primary Menu',
-	'mobile-menu' => 'Mobile Menu'
+	'mobile-menu' => 'Mobile Menu',
+	'footer-menu' => 'Footer Menu'
 ));
 
 add_filter('nav_menu_css_class', function($classes, $item) {
