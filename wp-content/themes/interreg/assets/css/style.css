@@ -19461,7 +19461,9 @@ Components - Sidebar Widget
 }
 .header-bottom .logo img {
   width: 100%;
-  max-height: 70px;
+  max-height: 90px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .header-bottom .header-nav {
   display: -webkit-box;
