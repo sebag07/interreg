@@ -16,11 +16,13 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "php -r \"shell_exec('cp -r wordpress/* . && rm -rf wordpress && rm -rf wp-content');\"",
+      "php -r \"if (is_dir('wordpress/wp-content')) shell_exec('rm -rf wordpress/wp-content');\"",
+      "php -r \"shell_exec('cp -r wordpress/* . && rm -rf wordpress');\"",
       "php -r \"if (file_exists('wp-config-sample.php')) rename('wp-config-sample.php', 'wp-config.php');\""
     ],
     "post-update-cmd": [
-      "php -r \"shell_exec('cp -r wordpress/* . && rm -rf wordpress && rm -rf wp-content');\"",
+      "php -r \"if (is_dir('wordpress/wp-content')) shell_exec('rm -rf wordpress/wp-content');\"",
+      "php -r \"shell_exec('cp -r wordpress/* . && rm -rf wordpress');\"",
       "php -r \"if (file_exists('wp-config-sample.php')) rename('wp-config-sample.php', 'wp-config.php');\""
     ]
   },
