@@ -4,23 +4,22 @@
   "type": "project",
   "require": {
     "php": ">=8.0",
-    "johnpbloch/wordpress-core": "^6.4",
+    "wordpress/core": "^6.4",
     "composer/installers": "^2.0"
   },
   "config": {
     "allow-plugins": {
-      "johnpbloch/wordpress-core-installer": true,
       "composer/installers": true
     }
   },
   "extra": {
-    "wordpress-core-install-dir": ".",
     "installer-paths": {
       "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
       "wp-content/themes/{$name}/": ["type:wordpress-theme"]
     }
   },
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "repositories": [
     {
       "type": "composer",
