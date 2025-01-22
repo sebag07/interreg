@@ -1,32 +1,29 @@
 {
-  "name": "johnpbloch/wordpress-core",
-  "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
-  "keywords": [
-    "wordpress",
-    "blog",
-    "cms"
-  ],
-  "type": "wordpress-core",
-  "homepage": "https://wordpress.org/",
-  "license": "GPL-2.0-or-later",
-  "authors": [
-    {
-      "name": "WordPress Community",
-      "homepage": "https://wordpress.org/about/"
-    }
-  ],
-  "support": {
-    "issues": "https://core.trac.wordpress.org/",
-    "forum": "https://wordpress.org/support/",
-    "wiki": "https://codex.wordpress.org/",
-    "irc": "irc://irc.freenode.net/wordpress",
-    "source": "https://core.trac.wordpress.org/browser"
-  },
+  "name": "your-vendor/interreg",
+  "description": "Interreg WordPress Theme Project",
+  "type": "project",
   "require": {
-    "php": ">=7.2.24",
-    "ext-json": "*"
+    "php": ">=8.0",
+    "wordpress/core": "^6.4",
+    "composer/installers": "^2.0"
   },
-  "provide": {
-    "wordpress/core-implementation": "6.7.1"
-  }
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ]
 }
