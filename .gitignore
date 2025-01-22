@@ -20,7 +20,7 @@ Thumbs.db
 
 # Node modules and vendor folders
 node_modules/
-vendor/
+/vendor
 
 # Ignore Composer and package manager files if using
 composer.lock
