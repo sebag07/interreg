@@ -4,7 +4,7 @@
   "type": "project",
   "require": {
     "php": ">=8.0",
-    "johnpbloch/wordpress": "^6.4",
+    "johnpbloch/wordpress-core": "^6.4",
     "composer/installers": "^2.0"
   },
   "config": {
@@ -14,7 +14,7 @@
     }
   },
   "extra": {
-    "wordpress-install-dir": "wp",
+    "wordpress-core-install-dir": ".",
     "installer-paths": {
       "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
       "wp-content/themes/{$name}/": ["type:wordpress-theme"]
