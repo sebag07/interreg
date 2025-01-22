@@ -46,47 +46,6 @@
 		            ));
 		            ?>
                 </div>
-<!--                <div class="col-auto">-->
-<!--                     Start Header Logo -->
-<!--                    <ul class="header-nav">-->
-<!--                        <li><a href="index.html">Home</a></li>-->
-<!--                        <li class="has-dropdown">-->
-<!--                            <a href="service-list.html">Service</a>-->
-<!--                            <ul class="submenu">-->
-<!--                                <li><a href="service-list.html">Services</a></li>-->
-<!--                                <li><a href="service-details.html">Service Details</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="has-dropdown">-->
-<!--                            <a href="project-list.html">Project</a>-->
-<!--                            <ul class="submenu">-->
-<!--                                <li><a href="project-list.html">Project</a></li>-->
-<!--                                <li><a href="project-details.html">Project Details</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="has-dropdown">-->
-<!--                            <a href="blog-list.html">Blog</a>-->
-<!--                            <ul class="submenu">-->
-<!--                                <li><a href="blog-list.html">Blog List Full Width</a></li>-->
-<!--                                <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>-->
-<!--                                <li><a href="blog-list-sidebar-right.html">Blog List Right Sidebar</a></li>-->
-<!--                                <li><a href="blog-details.html">Blog Details Full Width</a></li>-->
-<!--                                <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>-->
-<!--                                <li><a href="blog-details-sidebar-right.html">Blog Details Right Sidebar</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="has-dropdown">-->
-<!--                            <a href="#">Pages</a>-->
-<!--                            <ul class="submenu">-->
-<!--                                <li><a href="404-page.html">404 Page</a></li>-->
-<!--                                <li><a href="price.html">Price</a></li>-->
-<!--                                <li><a href="about.html">About Us</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li><a href="contact.html">Contact</a></li>-->
-<!--                    </ul>-->
-<!--                    End Header Logo -->
-<!--                </div>-->
                 <div class="col-auto">
                     <!-- Start Header Social Link -->
                     <ul class="social-link social-link-white">
