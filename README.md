@@ -7,6 +7,7 @@ This repository contains a WordPress installation with custom themes and plugins
 - PHP >= 8.0
 - Composer
 - Git
+- IF there is a previous installed wordpress in your current repository, you won't be able to clone the repo. You'll need to have an empty directory first.
 
 ## Installation
 
