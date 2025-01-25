@@ -26,11 +26,11 @@ get_header();
                                 <div class="col-xl-8 col-lg-10 offset-lg-1 col-12">
                                     <div class="content-box">
                                         <h4 class="sup-title">RORS00063</h4>
-                                        <h2 class="title">ERA_MIN</h2>
+                                        <h2 class="title">ERA-MIN</h2>
                                         <h5 class="sub-title">Environmental risk assessment from mining activities as a
                                             result of tailings storage in the crossborder area Romania – Serbia</h5>
 
-                                        <a href="service-list.html" class="btn btn-lg btn-primary">Project <i
+                                        <a href="#events" class="btn btn-lg btn-primary">Events <i
                                                     class="icofont-double-right icon-space-left"></i></a>
                                     </div>
                                 </div>
@@ -56,8 +56,7 @@ get_header();
                     </div>
                     <div class="content">
                         <h4 class="title">Context</h4>
-                        <p>Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry.</p>
+                        <p>The project addresses severe environmental degradation caused by abandoned industrial sites and mining activities in the Moldova Nouă area, posing risks to human health and biodiversity.</p>
                     </div>
                 </div>
             </div>
@@ -71,8 +70,7 @@ get_header();
                     </div>
                     <div class="content">
                         <h4 class="title">Challenges</h4>
-                        <p>Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry.</p>
+                        <p>Managing pollution from soil, air, and water contamination, particularly heavy metals and acid mine drainage, while mitigating habitat destruction and long-term ecological damage.</p>
                     </div>
                 </div>
             </div>
@@ -86,8 +84,7 @@ get_header();
                     </div>
                     <div class="content">
                         <h4 class="title">Opportunities</h4>
-                        <p>Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry.</p>
+                        <p>Implementing sustainable practices to rehabilitate polluted sites, restore ecosystems, and innovate mining processes to reduce environmental impact and support biodiversity.</p>
                     </div>
                 </div>
             </div>
@@ -97,7 +94,7 @@ get_header();
     <!-- .....:::::: End Promo Section :::::.... -->
 
     <!-- .....:::::: Start About-Display Section :::::.... -->
-    <div class="about-display-section section-top-space">
+    <div id="about" class="about-display-section section-top-space">
         <div class="about-display-wrapper">
             <div class="container">
                 <div class="box">

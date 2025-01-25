@@ -49,10 +49,10 @@
                 <div class="col-auto">
                     <!-- Start Header Social Link -->
                     <ul class="social-link social-link-white">
-                        <li><a target="_blank" href="https://example.com"><i class="icofont-facebook"></i></a></li>
-                        <li><a target="_blank" href="https://example.com"><i class="icofont-twitter"></i></a></li>
-                        <li><a target="_blank" href="https://example.com"><i class="icofont-instagram"></i></a></li>
-						<li><a target="_blank" href="https://example.com"><i class="icofont-youtube"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/share/159EpmqJxS/?mibextid=wwXIfr"><i class="icofont-facebook"></i></a></li>
+                        <li><a target="_blank" href="https://x.com/tranfrontaliERA"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/x.svg" alt="X Logo" width="15" height="15"></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/transfrontaliera?utm_source=qr"><i class="icofont-instagram"></i></a></li>
+						<!-- <li><a target="_blank" href="https://example.com"><i class="icofont-youtube"></i></a></li> -->
                     </ul>
                     <!-- Start Header Social Link -->
                 </div>
@@ -143,11 +143,11 @@
         <!-- Start Mobile contact Info -->
         <div class="mobile-contact-info text-center">
             <ul class="social-link social-link-white">
-                <li><a target="_blank" href="https://example.com"><i class="icofont-facebook"></i></a>
+                <li><a target="_blank" href="https://www.facebook.com/share/159EpmqJxS/?mibextid=wwXIfr"><i class="icofont-facebook"></i></a>
                 </li>
-                <li><a target="_blank" href="https://example.com"><i class="icofont-twitter"></i></a>
+                <li><a target="_blank" href="https://x.com/tranfrontaliERA"><i class="icofont-twitter"></i></a>
                 </li>
-                <li><a target="_blank" href="https://example.com"><i class="icofont-skype"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/transfrontaliera?utm_source=qr"><i class="icofont-skype"></i></a></li>
             </ul>
         </div>
         <!-- End Mobile contact Info -->

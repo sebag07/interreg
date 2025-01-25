@@ -21,7 +21,7 @@
 									<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-icon-1.png" alt="">
 								</div>
 								<div class="content">
-									<h3 class="title">Planing</h3>
+									<h3 class="title">Assessment</h3>
 								</div>
 							</div>
 						</div>
@@ -34,7 +34,7 @@
 									<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-icon-2.png" alt="">
 								</div>
 								<div class="content">
-									<h3 class="title">Development</h3>
+									<h3 class="title">Remedatiation</h3>
 								</div>
 							</div>
 						</div>
@@ -47,7 +47,7 @@
 									<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-icon-3.png" alt="">
 								</div>
 								<div class="content">
-									<h3 class="title">Launch</h3>
+									<h3 class="title">Restoration</h3>
 								</div>
 							</div>
 						</div>
@@ -64,7 +64,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="video-wrapper">
+			<div class="video-wrapper" style="opacity: 0;">
 				<div class="row">
 					<div class="col-12 text-end">
 						<div class="video-btn">

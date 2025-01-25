@@ -123,6 +123,10 @@
           box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -16723,6 +16727,7 @@ input, textarea {
   overflow: hidden;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  min-height: 260px;
 }
 .promo-single-item .box::after {
   position: absolute;
@@ -17884,6 +17889,8 @@ input, textarea {
 .blog-feed-slider-single-item .image img {
   width: 100%;
   border-radius: 35px;
+  max-height: 550px;
+  object-fit: cover;
 }
 .blog-feed-slider-single-item .content {
   margin-top: 35px;
@@ -18069,6 +18076,8 @@ input, textarea {
 .breadcrumb-wrapper img {
   width: 100%;
   height: 100%;
+  max-height: 600px;
+  object-position: bottom;
   -o-object-fit: cover;
      object-fit: cover;
 }

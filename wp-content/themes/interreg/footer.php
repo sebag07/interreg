@@ -18,7 +18,7 @@
                                 <div class="text"><span class="text-marker">Phone:</span><a href="tel:+40256404509">0256 404 509</a></div>
                             </li>
                             <li>
-                                <div class="text"><span class="text-marker">Web:</span><a href="https://www.interreg.ro">https://www.interreg.ro</a></div>
+                                <div class="text"><span class="text-marker">Web:</span><a href="https://www.transfrontaliera.upt.ro">www.transfrontaliera.upt.ro</a></div>
                             </li>
                             <li>
                                 <div class="text"><span class="text-marker">Email:</span> <a href="mailto:nicoleta.nemes@upt.ro">nicoleta.nemes@upt.ro</a> </div>
@@ -28,29 +28,46 @@
                 </div>
                 <div class="col-xl-auto col-md-6 col-12">
                     <div class="footer-widget-single-item">
-                        <h3 class="title">RECENT NEWS</h3>
+                        <h3 class="title">RECENT EVENTS</h3>
 
                         <ul class="footer-blog">
-                            <li>
-                                <a href="blog-details.html" class="image">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/blog-list-img-1.png" alt="">
-                                </a>
-                                <div class="content">
-                                    <a class="title" href="blog-details.html">Lorem Ipsum simply dumme printing and type industry.</a>
-                                    <span class="date">03 February, 2021</span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="blog-details.html" class="image">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/blog-list-img-1.png" alt="">
-                                </a>
-                                <div class="content">
-                                    <a class="title" href="blog-details.html">Lorem Ipsum simply dumme printing and type industry.</a>
-                                    <span class="date">03 February, 2021</span>
-                                </div>
-                            </li>
-
-                        </ul>
+            <?php 
+            $args = array(
+                'post_type' => 'event',
+                'posts_per_page' => 2,
+                'orderby' => 'date',
+                'order' => 'DESC'
+            );
+            
+            $recent_events = new WP_Query($args);
+            
+            if ($recent_events->have_posts()) :
+                while ($recent_events->have_posts()) : $recent_events->the_post();
+                    $event_date = get_field('event_date');
+            ?>
+                <li>
+                    <a href="<?php the_permalink(); ?>" class="image">
+                        <?php 
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail('thumbnail');
+                        } else {
+                            echo '<img src="' . get_template_directory_uri() . '/assets/images/blog/blog-list-img-1.png" alt="">';
+                        }
+                        ?>
+                    </a>
+                    <div class="content">
+                        <a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <span class="date">
+                            29 January, 2025
+                        </span>
+                    </div>
+                </li>
+            <?php 
+                endwhile;
+                wp_reset_postdata();
+            endif;
+            ?>
+        </ul>
                     </div>
                 </div>
                 <div class="col-xl-auto col-md-6 col-12">
@@ -58,12 +75,13 @@
                         <h3 class="title">OUR SERVICES</h3>
                         <ul class="footer-nav">
                             <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Our Services</a></li>
+                            <li><a href="#events">Events</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-auto col-md-6 col-12">
+                <!-- <div class="col-xl-auto col-md-6 col-12">
                     <div class="footer-widget-single-item">
                         <h3 class="title">QUICK LINKS</h3>
                         <ul class="footer-nav">
@@ -71,7 +89,7 @@
                             <li><a href="#">Cookie Policy</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

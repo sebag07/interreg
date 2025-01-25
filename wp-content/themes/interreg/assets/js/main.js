@@ -151,7 +151,7 @@
                 slidesPerView: 4,
                 autoplay: {
                     delay: 3000,
-                    disableOnInteraction: false,
+                    disableOnInteraction: true,
                 },
                 speed: 1500,
                 loop: true,
@@ -165,15 +165,6 @@
                     768: {
                         slidesPerView: 4,
                     },
-                    992: {
-                        slidesPerView: 4,
-                    },
-                    1200: {
-                        slidesPerView: 4,
-                    },
-                    1800: {
-                        slidesPerView: 4,
-                    }
                 }
             });
         }
@@ -280,3 +271,23 @@
 
 
 })(jQuery);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollOffset = 160; // Adjust this value based on your header height
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - scrollOffset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
