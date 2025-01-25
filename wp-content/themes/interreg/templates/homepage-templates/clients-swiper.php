@@ -9,106 +9,31 @@
 						<div class="swiper-container">
 							<!-- Additional required wrapper -->
 							<div class="swiper-wrapper">
-								<!-- Slides -->
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/greener-lower-europe.png"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/interreg.png"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/logo-icer.jpg"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/logo-ioc-bor.png"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/logo-upt-long.png"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/greener-lower-europe.png"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/interreg.png"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/logo-icer.jpg"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/logo-ioc-bor.png"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
-								<!-- Start Client Logo Single Item  -->
-								<div class="client-logo-display-single-item swiper-slide">
-									<a href="blog-details.html" class="image">
-										<img class="img-fluid"
-										     src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/logo-upt-long.png"
-										     alt="">
-									</a>
-								</div>
-								<!-- End Client Logo Single Item  -->
-
+							<?php
+                                if (have_rows('clientspartners_repeater', 'options')) :
+                                    while (have_rows('clientspartners_repeater', 'options')) : the_row();
+                                        $logo_image = get_sub_field('logo_image');
+                                        $logo_url = get_sub_field('logo_url');
+                                        if ($logo_image) :
+                                ?>
+                                            <!-- Start Client Logo Single Item  -->
+                                            <div class="client-logo-display-single-item swiper-slide">
+                                                <?php if ($logo_url) : ?>
+                                                    <a href="<?php echo esc_url($logo_url); ?>" class="image">
+                                                <?php endif; ?>
+                                                    <img class="img-fluid"
+                                                        src="<?php echo esc_url($logo_image['url']); ?>"
+                                                        alt="<?php echo esc_attr($logo_image['alt']); ?>">
+                                                <?php if ($logo_url) : ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                            </div>
+                                            <!-- End Client Logo Single Item  -->
+                                <?php
+                                        endif;
+                                    endwhile;
+                                endif;
+                                ?>
 							</div>
 						</div>
 					</div>
