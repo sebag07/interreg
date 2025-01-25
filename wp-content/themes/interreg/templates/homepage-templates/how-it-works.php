@@ -4,54 +4,50 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<!-- Start Section Content -->
-				<div class="section-content mb-0 mb-md-6">
-					<h4 class="title-tag text-gradient">WORKING PROCESS</h4>
-					<h2 class="title">HOW IT WORKS?</h2>
-				</div>
-				<!-- End Section Content -->
+                <!-- Start Section Content -->
+                <div class="section-content mb-0 mb-md-6">
+                    <?php 
+                    $sup_title = get_field('how_it_works_sup_title');
+                    $main_title = get_field('how_it_works_title');
+                    ?>
+                    <?php if ($sup_title) : ?>
+                        <h4 class="title-tag text-gradient"><?php echo esc_html($sup_title); ?></h4>
+                    <?php endif; ?>
+                    <?php if ($main_title) : ?>
+                        <h2 class="title"><?php echo esc_html($main_title); ?></h2>
+                    <?php endif; ?>
+                </div>
+                <!-- End Section Content -->
 			</div>
 			<div class="working-process-display-wrapper">
 				<div class="row">
 					<div class="col-12">
-						<!-- Start Working Process Single Item -->
-						<div class="working-process-single-item pos-absolute">
-							<div class="box">
-								<div class="icon">
-									<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-icon-1.png" alt="">
-								</div>
-								<div class="content">
-									<h3 class="title">Assessment</h3>
-								</div>
-							</div>
-						</div>
-						<!-- End Working Process Single Item -->
-
-						<!-- Start Working Process Single Item -->
-						<div class="working-process-single-item pos-absolute">
-							<div class="box">
-								<div class="icon">
-									<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-icon-2.png" alt="">
-								</div>
-								<div class="content">
-									<h3 class="title">Remedatiation</h3>
-								</div>
-							</div>
-						</div>
-						<!-- End Working Process Single Item -->
-
-						<!-- Start Working Process Single Item -->
-						<div class="working-process-single-item pos-absolute">
-							<div class="box">
-								<div class="icon">
-									<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-icon-3.png" alt="">
-								</div>
-								<div class="content">
-									<h3 class="title">Restoration</h3>
-								</div>
-							</div>
-						</div>
-						<!-- End Working Process Single Item -->
+					<?php
+                        if (have_rows('working_process_repeater')) :
+                            while (have_rows('working_process_repeater')) : the_row();
+                                $icon = get_sub_field('icon');
+                                $title = get_sub_field('title');
+                        ?>
+                                <!-- Start Working Process Single Item -->
+                                <div class="working-process-single-item pos-absolute">
+                                    <div class="box">
+                                        <div class="icon">
+                                            <?php if ($icon) : ?>
+                                                <img class="img-fluid" src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>">
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="content">
+                                            <?php if ($title) : ?>
+                                                <h3 class="title"><?php echo esc_html($title); ?></h3>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Working Process Single Item -->
+                        <?php
+                            endwhile;
+                        endif;
+                        ?>
 
 						<!-- Work Processing Arrow -->
 						<div class="working-process-display-arrow arrow-1">
@@ -67,14 +63,22 @@
 			<div class="video-wrapper" style="opacity: 0;">
 				<div class="row">
 					<div class="col-12 text-end">
-						<div class="video-btn">
-							<a class="wave-btn video-play-btn" href="https://youtu.be/MKjhBO2xQzg" data-autoplay="true" data-vbtype="video">
-								<span class="icon"><i class="icofont-ui-play text-gradient"></i></span>
-							</a>
-							<div class="text">
-								Watch 2 min <br> Intro Video.
-							</div>
-						</div>
+					<div class="video-btn">
+                            <?php 
+                            $video_url = get_field('how_it_works_video_url');
+                            $video_text = get_field('how_it_works_video_text');
+                            ?>
+                            <?php if ($video_url) : ?>
+                                <a class="wave-btn video-play-btn" href="<?php echo esc_url($video_url); ?>" data-autoplay="true" data-vbtype="video">
+                                    <span class="icon"><i class="icofont-ui-play text-gradient"></i></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ($video_text) : ?>
+                                <div class="text">
+                                    <?php echo wp_kses_post($video_text); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
 					</div>
 				</div>
 			</div>

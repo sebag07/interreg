@@ -7705,10 +7705,10 @@ textarea.form-control-lg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x);
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  padding: 0px;
 }
 .offcanvas-header .btn-close {
   padding: calc(var(--bs-offcanvas-padding-y) * 0.5) calc(var(--bs-offcanvas-padding-x) * 0.5);
@@ -20008,6 +20008,7 @@ Components - Sidebar Widget
   z-index: 999999;
   position: fixed;
   top: 0;
+  visibility: visible;
   overflow: auto;
   height: 100vh;
   padding: 20px;

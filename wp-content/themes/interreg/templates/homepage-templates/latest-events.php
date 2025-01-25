@@ -3,16 +3,33 @@
 	<div class="container-fluid">
 		<div class="row align-items-center">
 			<div class="col-xxl-4 col-xl-6">
-				<!-- Start Section Content -->
-				<div class="section-content section-content-space">
-					<h4 class="title-tag text-gradient">Events</h4>
-					<h2 class="title">Latest Events</h2>
-					<!-- <p>Lorem Ipsum is simply dummy text of
-						been the industry standard.</p> -->
+ <!-- Start Section Content -->
+ <div class="section-content section-content-space">
+                    <?php
+                    $sup_title = get_field('events_sup_title');
+                    $title = get_field('events_title');
+                    $description = get_field('events_description');
+                    $button_url = get_field('events_button_url');
+                    $button_text = get_field('events_button_text');
+                    ?>
 
-					<!-- <a href="blog-list.html" class="btn btn-lg btn-primary">View All Events</a> -->
-				</div>
-				<!-- End Section Content -->
+                    <?php if ($sup_title) : ?>
+                        <h4 class="title-tag text-gradient"><?php echo esc_html($sup_title); ?></h4>
+                    <?php endif; ?>
+
+                    <?php if ($title) : ?>
+                        <h2 class="title"><?php echo esc_html($title); ?></h2>
+                    <?php endif; ?>
+
+                    <?php if ($description) : ?>
+                        <p><?php echo esc_html($description); ?></p>
+                    <?php endif; ?>
+
+                    <?php if ($button_url && $button_text) : ?>
+                        <a href="<?php echo esc_url($button_url); ?>" class="btn btn-lg btn-primary"><?php echo esc_html($button_text); ?></a>
+                    <?php endif; ?>
+                </div>
+                <!-- End Section Content -->
 			</div>
 
 			<div class="col-xxl-8 col-xl-6 col-lg-12">

@@ -81,3 +81,33 @@ add_filter('nav_menu_css_class', function($classes, $item) {
 add_filter('nav_menu_submenu_css_class', function($classes) {
 	return array('submenu');
 });
+
+if (function_exists('acf_add_options_page')) {
+
+    acf_add_options_page(array(
+        'page_title' => 'Options',
+        'menu_title' => 'Options',
+        'menu_slug' => 'general-options',
+        'capability' => 'edit_posts',
+        'redirect' => false
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' => 'Footer',
+        'menu_title' => 'Footer',
+        'menu_slug' => 'footer-options',
+        'capability' => 'edit_posts',
+        'redirect' => false,
+        'parent_slug' => 'general-options',
+    ));
+
+	acf_add_options_sub_page(array(
+        'page_title' => 'Clients/Partners Swiper',
+        'menu_title' => 'Clients/Partners Swiper', 
+        'menu_slug' => 'clients-partners-swiper-options',
+        'capability' => 'edit_posts',
+        'redirect' => false,
+        'parent_slug' => 'general-options',
+    ));
+
+}
