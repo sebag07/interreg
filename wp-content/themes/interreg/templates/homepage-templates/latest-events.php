@@ -41,7 +41,7 @@
 							<!-- Slides -->
                             <?php 
                             $args = array(
-                                'post_type' => 'event',
+                                'post_type' => 'evenimente',
                                 'posts_per_page' => 3,
                                 'orderby' => 'date',
                                 'order' => 'DESC'
@@ -49,11 +49,11 @@
                             
                             $events_query = new WP_Query($args);
                             
-                            if ($events_query->have_posts()) :
-                                while ($events_query->have_posts()) : $events_query->the_post();
-                                    $event_date = get_field('event_date'); // Assuming you have an ACF date field
-                            ?>
-                                <!-- Start Blog Feed Single Item  -->
+							if ($events_query->have_posts()) :
+								while ($events_query->have_posts()) : $events_query->the_post();
+									$event_date = get_field('date', get_the_ID());
+								?>                              
+								<!-- Start Blog Feed Single Item  -->
                                 <div class="blog-feed-slider-single-item swiper-slide">
                                     <a href="<?php the_permalink(); ?>" class="image">
                                         <?php 
@@ -69,7 +69,26 @@
                                                 <a href="<?php the_permalink(); ?>" class="date icon-space-right">
                                                     <i class="icofont-ui-calendar"></i>
                                                     <span class="text">
-														January 29, 2025
+														<?php 
+															if ($event_date) {
+																// Check if $event_date is already a timestamp
+																if (is_numeric($event_date)) {
+																	$timestamp = $event_date;
+																} else {
+																	// If it's not a timestamp, try to convert it
+																	$timestamp = strtotime($event_date);
+																}
+																
+																if ($timestamp !== false) {
+																	echo esc_html(date_i18n('d.m.Y', $timestamp));
+																} else {
+																	// If conversion fails, output the raw date
+																	echo esc_html($event_date);
+																}
+															} else {
+																echo esc_html(get_the_date('d.m.Y'));
+															}
+														?>
                                                     </span>
                                                 </a>
                                             </li>
@@ -78,8 +97,18 @@
                                         <h3 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
                                         <a href="<?php the_permalink(); ?>" class="btn btn-sm btn-outline-primary text-uppercase">
-                                            <span>read more <i class="icofont-double-right icon-space-left"></i></span>
-                                        </a>
+											<span>
+                                                <?php
+                                                if (function_exists('icl_object_id')) {
+                                                    $current_language = apply_filters('wpml_current_language', NULL);
+                                                    echo $current_language == 'ro' ? 'citește mai mult' : 'read more';
+                                                } else {
+                                                    echo 'read more';
+                                                }
+                                                ?>
+                                                <i class="icofont-double-right icon-space-left"></i>
+                                            </span>                                        
+										</a>
                                     </div>
                                 </div>
                                 <!-- End Blog Feed Single Item  -->
