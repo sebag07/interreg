@@ -8,32 +8,66 @@
             <div class="row justify-content-xl-between">
                 <div class="col-xl-auto col-md-6 col-12">
                     <div class="footer-widget-single-item">
-                        <h3 class="title">CONTACT US</h3>
+                        <h3 class="title">
+                            <?php
+                                if (function_exists('icl_object_id')) {
+                                    $current_language = apply_filters('wpml_current_language', NULL);
+                                    echo $current_language == 'ro' ? 'CONTACTEAZĂ-NE' : 'CONTACT US';
+                                } else {
+                                    echo 'CONTACT US';
+                                }
+                            ?>
+                        </h3>
 
                         <ul class="footer-about">
+                        <?php
+                            $location = get_field('location', 'option');
+                            $phone = get_field('phone', 'option');
+                            $web = get_field('web', 'option');
+                            $email = get_field('email', 'option');
+
+                            if ($location) : ?>
                             <li>
-                                <div class="text"><span class="text-marker">Location:</span>Piața Victoriei nr. 2, et. 1.</div>
+                                <div class="text"><span class="text-marker"><?php echo $current_language == 'ro' ? 'Locație:' : 'Location:'; ?></span><?php echo esc_html($location); ?></div>
                             </li>
+                            <?php endif;
+
+                            if ($phone) : ?>
                             <li>
-                                <div class="text"><span class="text-marker">Phone:</span><a href="tel:+40256404509">0256 404 509</a></div>
+                                <div class="text"><span class="text-marker"><?php echo $current_language == 'ro' ? 'Telefon:' : 'Phone:'; ?></span><a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone)); ?>"><?php echo esc_html($phone); ?></a></div>
                             </li>
+                            <?php endif;
+
+                            if ($web) : ?>
                             <li>
-                                <div class="text"><span class="text-marker">Web:</span><a href="https://www.transfrontaliera.upt.ro">www.transfrontaliera.upt.ro</a></div>
+                                <div class="text"><span class="text-marker">Web:</span><a href="<?php echo esc_url($web); ?>"><?php echo esc_html($web); ?></a></div>
                             </li>
+                            <?php endif;
+
+                            if ($email) : ?>
                             <li>
-                                <div class="text"><span class="text-marker">Email:</span> <a href="mailto:nicoleta.nemes@upt.ro">nicoleta.nemes@upt.ro</a> </div>
+                                <div class="text"><span class="text-marker">Email:</span><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></div>
                             </li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-auto col-md-6 col-12">
                     <div class="footer-widget-single-item">
-                        <h3 class="title">RECENT EVENTS</h3>
-
+                    <h3 class="title">
+                            <?php
+                            if (function_exists('icl_object_id')) {
+                                $current_language = apply_filters('wpml_current_language', NULL);
+                                echo $current_language == 'ro' ? 'EVENIMENTE RECENTE' : 'RECENT EVENTS';
+                            } else {
+                                echo 'RECENT EVENTS';
+                            }
+                            ?>
+                        </h3>
                         <ul class="footer-blog">
             <?php 
             $args = array(
-                'post_type' => 'event',
+                'post_type' => 'evenimente',
                 'posts_per_page' => 2,
                 'orderby' => 'date',
                 'order' => 'DESC'
@@ -43,8 +77,8 @@
             
             if ($recent_events->have_posts()) :
                 while ($recent_events->have_posts()) : $recent_events->the_post();
-                    $event_date = get_field('event_date');
-            ?>
+                $event_date = get_field('date', get_the_ID());
+                ?>
                 <li>
                     <a href="<?php the_permalink(); ?>" class="image">
                         <?php 
@@ -58,7 +92,26 @@
                     <div class="content">
                         <a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         <span class="date">
-                            29 January, 2025
+                        <?php 
+                            if ($event_date) {
+                                // Check if $event_date is already a timestamp
+                                if (is_numeric($event_date)) {
+                                    $timestamp = $event_date;
+                                } else {
+                                    // If it's not a timestamp, try to convert it
+                                    $timestamp = strtotime($event_date);
+                                }
+                                
+                                if ($timestamp !== false) {
+                                    echo esc_html(date_i18n('d.m.Y', $timestamp));
+                                } else {
+                                    // If conversion fails, output the raw date
+                                    echo esc_html($event_date);
+                                }
+                            } else {
+                                echo esc_html(get_the_date('d.m.Y'));
+                            }
+                        ?>
                         </span>
                     </div>
                 </li>
@@ -108,12 +161,20 @@
                 </div>
                 <div class="col-auto">
                     <div class="footer-bottom-right">
-                        <ul class="footer-soacial">
-                            <li><a href="https://www.example.com" target="_blank">Facebook</a></li>
-                            <li><a href="https://www.example.com" target="_blank">Twitter</a></li>
-                            <li><a href="https://www.example.com" target="_blank">Instagram</a></li>
-                            <li><a href="https://www.example.com" target="_blank">Youtube</a></li>
-                        </ul>
+                        <?php if (have_rows('socials_repeater', 'option')) : ?>
+                            <ul class="footer-soacial">
+                                <?php while (have_rows('socials_repeater', 'option')) : the_row(); 
+                                    $text = get_sub_field('name');
+                                    $url = get_sub_field('url');
+                                ?>
+                                    <li>
+                                        <a href="<?php echo esc_url($url); ?>" target="_blank">
+                                            <?php echo esc_html($text); ?>
+                                        </a>
+                                    </li>
+                                <?php endwhile; ?>
+                            </ul>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
