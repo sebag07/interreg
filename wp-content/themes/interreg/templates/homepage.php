@@ -93,6 +93,7 @@ get_header();
         <div class="about-display-wrapper">
             <div class="container">
                 <div class="box">
+
                     <!-- Start About Display Background -->
                     <?php
                     $about_image = get_field('about_background_image');
@@ -116,6 +117,7 @@ get_header();
                         </div>
                     </div>
                     <!-- End About Display Inner Content -->
+
                 </div>
             </div>
         </div>
