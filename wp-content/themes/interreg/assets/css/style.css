@@ -17901,7 +17901,7 @@ input, textarea {
 .blog-feed-slider-single-item .image img {
   width: 100%;
   border-radius: 35px;
-  max-height: 550px;
+  height: 350px;
   object-fit: cover;
 }
 .blog-feed-slider-single-item .content {

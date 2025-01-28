@@ -48,13 +48,26 @@
                 </div>
                 <div class="col-auto">
                     <!-- Start Header Social Link -->
-                    <ul class="social-link social-link-white">
-                        <li><a target="_blank" href="https://www.facebook.com/share/159EpmqJxS/?mibextid=wwXIfr"><i class="icofont-facebook"></i></a></li>
-                        <li><a target="_blank" href="https://x.com/tranfrontaliERA"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/x.svg" alt="X Logo" width="15" height="15"></a></li>
-                        <li><a target="_blank" href="https://www.instagram.com/transfrontaliera?utm_source=qr"><i class="icofont-instagram"></i></a></li>
-						<!-- <li><a target="_blank" href="https://example.com"><i class="icofont-youtube"></i></a></li> -->
-                    </ul>
-                    <!-- Start Header Social Link -->
+                    <?php if (have_rows('socials_repeater', 'option')) : ?>
+                        <ul class="social-link social-link-white">
+                            <?php while (have_rows('socials_repeater', 'option')) : the_row(); 
+                                $icon = get_sub_field('icon');
+                                $url = get_sub_field('url');
+                                $custom_icon = get_sub_field('custom_icon');
+                            ?>
+                                <li>
+                                    <a target="_blank" href="<?php echo esc_url($url); ?>">
+                                        <?php if ($custom_icon) : ?>
+                                            <img src="<?php echo esc_url($custom_icon['url']); ?>" alt="<?php echo esc_attr($custom_icon['alt']); ?>" width="15" height="15">
+                                        <?php else : ?>
+                                            <i class="icofont-<?php echo esc_attr($icon); ?>"></i>
+                                        <?php endif; ?>
+                                    </a>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php endif; ?>
+                    <!-- End Header Social Link -->
                 </div>
             </div>
         </div>
