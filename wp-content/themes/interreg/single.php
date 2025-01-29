@@ -56,7 +56,7 @@ get_header();
                                 </div>
                                 <!-- <div class="meta-group-right">
                                     <ul class="meta-box d-flex flex-wrap">
-                                        <li class="blog-tag meta-box-content">
+                                    <li class="blog-tag meta-box-cETTTEGontent">
                                             <span class="title icon-space-right"><i class="icofont-tag"></i>Tags:</span>
                                             <ul class="list-item">
                                                 <li><a href="#">factory ,</a></li>
