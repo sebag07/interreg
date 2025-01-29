@@ -24,7 +24,9 @@
                 <div class="col-auto">
                     <!-- Start Header Logo -->
                     <div class="logo">
-						<a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.svg" alt="Transfrontaliera Logo"></a>
+                    <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.svg" alt="Transfrontaliera Logo">
+                        </a>                    
                     </div>
                     <!-- End Header Logo -->
                 </div>
