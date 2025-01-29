@@ -99,6 +99,32 @@
 </div>
 <!-- .....:::::: Start MobileHeader Section :::::.... -->
 
+<!-- Script for mobile menu to close when a link is clicked: -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var mobileMenu = document.getElementById('mobile-menu-wrapper');
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                // Close the mobile menu
+                var offcanvasMenu = document.getElementById('mobile-menu-offcanvas');
+                if (offcanvasMenu && offcanvasMenu.classList.contains('offcanvas-open')) {
+                    offcanvasMenu.classList.remove('offcanvas-open');
+                }
+                
+                // Remove the overlay
+                var overlay = document.querySelector('.offcanvas-overlay');
+                if (overlay) {
+                    overlay.style.display = 'none';
+                }
+
+                // Remove 'active' class from body if it exists
+                document.body.classList.remove('mobile-menu-active');
+            }
+        });
+    }
+});
+</script>
 <!--  Start Offcanvas Mobile Menu Section -->
 <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
     <!-- Start Offcanvas Header -->
@@ -106,7 +132,7 @@
         <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
     </div> <!-- End Offcanvas Header -->
     <!-- Start Offcanvas Mobile Menu Wrapper -->
-    <div class="offcanvas-mobile-menu-wrapper">
+    <div id="mobile-menu-wrapper" class="offcanvas-mobile-menu-wrapper">        
         <!-- Start Mobile Menu  -->
         <div class="mobile-menu-bottom">
             <!-- Start Mobile Menu Nav -->
@@ -158,3 +184,4 @@
 <div class="offcanvas-overlay"></div>
 
 <main class="main-wrapper">
+
