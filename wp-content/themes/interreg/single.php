@@ -11,7 +11,16 @@ get_header();
                     <div class="row">
                         <div class="col-12">
                             <div class="content">
-                                <h2 class="title">Event Details</h2>
+                            <h2 class="title">
+                                    <?php
+                                    $current_language = apply_filters('wpml_current_language', NULL);
+                                    if ($current_language === 'ro') {
+                                        echo 'Detalii Eveniment';
+                                    } else {
+                                        echo 'Event Details';
+                                    }
+                                    ?>
+                                </h2>                                
                                 <!-- <ol class="breadcrumb-link">
                                     <li><a href="blog-list.html">Blog</a></li>
                                     <li class="active" aria-current="page">Blog Details</li>

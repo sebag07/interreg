@@ -124,13 +124,34 @@
                     </div>
                 </div>
                 <div class="col-xl-auto col-md-6 col-12">
-                    <div class="footer-widget-single-item">
-                        <h3 class="title">OUR SERVICES</h3>
+                <div class="footer-widget-single-item">
+                        <h3 class="title">
+                            <?php
+                            $current_language = apply_filters('wpml_current_language', NULL);
+                            echo $current_language == 'ro' ? 'SERVICIILE NOASTRE' : 'OUR SERVICES';
+                            ?>
+                        </h3>
                         <ul class="footer-nav">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#services">Our Services</a></li>
-                            <li><a href="#events">Events</a></li>
+                            <?php
+                            $menu_items = array(
+                                'ro' => array(
+                                    'Acasă' => home_url('/'),
+                                    'Despre Proiect' => '#about',
+                                    'Servicii' => '#services',
+                                    'Evenimente' => '#events'
+                                ),
+                                'en' => array(
+                                    'Home' => home_url('/en/'),
+                                    'About Us' => '/en/#about',
+                                    'Our Services' => '/en/#services',
+                                    'Events' => '/en/#events'
+                                )
+                            );
+
+                            foreach ($menu_items[$current_language] as $label => $url) :
+                            ?>
+                                <li><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($label); ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
@@ -155,8 +176,7 @@
                 <div class="col-auto">
                     <div class="footer-bottom-left">
                         <div class="footer-copyright">
-                            <p class="copyright-text">&copy; 2025 <a href="index.html">Interreg</a> Made with <i class="icofont-heart"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a> </p>
-                        </div>
+                        <p class="copyright-text">&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">Interreg</a> Made with <i class="icofont-heart"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a></p>                        </div>
                     </div>
                 </div>
                 <div class="col-auto">

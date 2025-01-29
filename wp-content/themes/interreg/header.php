@@ -24,7 +24,9 @@
                 <div class="col-auto">
                     <!-- Start Header Logo -->
                     <div class="logo">
-						<a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.svg" alt="Transfrontaliera Logo"></a>
+                    <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.svg" alt="Transfrontaliera Logo">
+                        </a>                    
                     </div>
                     <!-- End Header Logo -->
                 </div>
@@ -97,6 +99,32 @@
 </div>
 <!-- .....:::::: Start MobileHeader Section :::::.... -->
 
+<!-- Script for mobile menu to close when a link is clicked: -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var mobileMenu = document.getElementById('mobile-menu-wrapper');
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                // Close the mobile menu
+                var offcanvasMenu = document.getElementById('mobile-menu-offcanvas');
+                if (offcanvasMenu && offcanvasMenu.classList.contains('offcanvas-open')) {
+                    offcanvasMenu.classList.remove('offcanvas-open');
+                }
+                
+                // Remove the overlay
+                var overlay = document.querySelector('.offcanvas-overlay');
+                if (overlay) {
+                    overlay.style.display = 'none';
+                }
+
+                // Remove 'active' class from body if it exists
+                document.body.classList.remove('mobile-menu-active');
+            }
+        });
+    }
+});
+</script>
 <!--  Start Offcanvas Mobile Menu Section -->
 <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
     <!-- Start Offcanvas Header -->
@@ -104,63 +132,46 @@
         <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
     </div> <!-- End Offcanvas Header -->
     <!-- Start Offcanvas Mobile Menu Wrapper -->
-    <div class="offcanvas-mobile-menu-wrapper">
+    <div id="mobile-menu-wrapper" class="offcanvas-mobile-menu-wrapper">        
         <!-- Start Mobile Menu  -->
         <div class="mobile-menu-bottom">
             <!-- Start Mobile Menu Nav -->
             <div class="offcanvas-menu">
-                <ul>
-                    <li>
-                        <a href="index.html"><span>Home</span></a>
-                    </li>
-                    <li>
-                        <a href="#"><span>Services</span></a>
-                        <ul class="mobile-sub-menu">
-                            <li><a href="service-list.html">Service List</a></li>
-                            <li><a href="service-details.html">Service Details</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><span>Project</span></a>
-                        <ul class="mobile-sub-menu">
-                            <li><a href="project-list.html">Project List</a></li>
-                            <li><a href="project-details.html">Project Details</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><span>Blog</span></a>
-                        <ul class="mobile-sub-menu">
-                            <li><a href="blog-list.html">Blog List Full Width</a></li>
-                            <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>
-                            <li><a href="blog-list-sidebar-right.html">Blog List Right Sidebar</a></li>
-                            <li><a href="blog-details.html">Blog Details Full Width</a></li>
-                            <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>
-                            <li><a href="blog-details-sidebar-right.html">Blog Details Right Sidebar</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><span>Pages</span></a>
-                        <ul class="mobile-sub-menu">
-                            <li><a href="404-page.html">404 Page</a></li>
-                            <li><a href="price.html">Price</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="contact.html"><span>Contact</span></a>
-                    </li>
-                </ul>
+            <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'primary-menu',
+                    'menu_class'     => 'mobile-menu',
+                    'container'      => false,
+                    'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
+                    'walker'         => new Walker_Nav_Menu()
+                ));
+                ?>
             </div> <!-- End Mobile Menu Nav -->
         </div> <!-- End Mobile Menu -->
 
         <!-- Start Mobile contact Info -->
         <div class="mobile-contact-info text-center">
             <ul class="social-link social-link-white">
-                <li><a target="_blank" href="https://www.facebook.com/share/159EpmqJxS/?mibextid=wwXIfr"><i class="icofont-facebook"></i></a>
-                </li>
-                <li><a target="_blank" href="https://x.com/tranfrontaliERA"><i class="icofont-twitter"></i></a>
-                </li>
-                <li><a target="_blank" href="https://www.instagram.com/transfrontaliera?utm_source=qr"><i class="icofont-skype"></i></a></li>
+            <?php 
+                if (have_rows('socials_repeater', 'option')) : 
+                    while (have_rows('socials_repeater', 'option')) : the_row();
+                        $icon = get_sub_field('icon');
+                        $url = get_sub_field('url');
+                        $custom_icon = get_sub_field('custom_icon');
+                ?>
+                    <li>
+                        <a target="_blank" href="<?php echo esc_url($url); ?>">
+                            <?php if ($custom_icon) : ?>
+                                <img src="<?php echo esc_url($custom_icon['url']); ?>" alt="<?php echo esc_attr($custom_icon['alt']); ?>" width="15" height="15">
+                            <?php else : ?>
+                                <i class="icofont-<?php echo esc_attr($icon); ?>"></i>
+                            <?php endif; ?>
+                        </a>
+                    </li>
+                <?php 
+                    endwhile;
+                endif; 
+                ?>
             </ul>
         </div>
         <!-- End Mobile contact Info -->
@@ -173,3 +184,4 @@
 <div class="offcanvas-overlay"></div>
 
 <main class="main-wrapper">
+
