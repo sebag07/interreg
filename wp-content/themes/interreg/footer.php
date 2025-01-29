@@ -155,8 +155,7 @@
                 <div class="col-auto">
                     <div class="footer-bottom-left">
                         <div class="footer-copyright">
-                            <p class="copyright-text">&copy; 2025 <a href="index.html">Interreg</a> Made with <i class="icofont-heart"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a> </p>
-                        </div>
+                        <p class="copyright-text">&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">Interreg</a> Made with <i class="icofont-heart"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a></p>                        </div>
                     </div>
                 </div>
                 <div class="col-auto">
