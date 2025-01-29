@@ -16877,8 +16877,7 @@ input, textarea {
 }
 @media (min-width: 992px) {
   .about-display-wrapper .content {
-    padding-left: 60px;
-    padding-right: 60px;
+    padding: 60px;
   }
 }
 @media (min-width: 992px) {
@@ -16893,14 +16892,12 @@ input, textarea {
 }
 @media (min-width: 992px) {
   .about-display-wrapper .content {
-    padding-left: 75px;
-    padding-right: 75px;
+    padding: 75px
   }
 }
 @media (min-width: 1400px) {
   .about-display-wrapper .content {
-      padding-left: 100px;
-      padding-right: 100px;
+      padding: 100px;
   }
 }
 .about-display-wrapper .content .left {
