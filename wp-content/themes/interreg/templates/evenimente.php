@@ -16,7 +16,7 @@ get_header();
                 if ($hero_image): ?>
                     <img src="<?php echo esc_url($hero_image['url']); ?>" alt="<?php echo esc_attr($hero_image['alt']); ?>">
                 <?php else: ?>
-                    <div class="image"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-slider/hero-slider-1.webp" alt=""></div>
+                    <div class="image"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-slider/hero-slider-1.webp" alt="Default Hero Image"></div>
                 <?php endif; ?>
                 <div class="overlay"></div>
             </div>
