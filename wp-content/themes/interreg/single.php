@@ -34,7 +34,7 @@ get_header();
         <!-- .....:::::: End Breadcrumb Section :::::.... -->
 
          <!-- .....:::::: Start Blog Details Section :::::.... -->
-         <div class="blog-details-section section-inner-gap">
+         <div class="blog-details-section section-top-space">
              <div class="blog-details-box-wrapper">
                 <div class="container">
                     <div class="row">
