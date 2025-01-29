@@ -128,30 +128,19 @@
                         <h3 class="title">
                             <?php
                             $current_language = apply_filters('wpml_current_language', NULL);
-                            echo $current_language == 'ro' ? 'SERVICIILE NOASTRE' : 'OUR SERVICES';
+                            echo $current_language == 'ro' ? 'NAVIGAȚIE' : 'NAVIGATION';
                             ?>
                         </h3>
                         <ul class="footer-nav">
-                            <?php
-                            $menu_items = array(
-                                'ro' => array(
-                                    'Acasă' => home_url('/'),
-                                    'Despre Proiect' => '#about',
-                                    'Servicii' => '#services',
-                                    'Evenimente' => '#events'
-                                ),
-                                'en' => array(
-                                    'Home' => home_url('/en/'),
-                                    'About Us' => '/en/#about',
-                                    'Our Services' => '/en/#services',
-                                    'Events' => '/en/#events'
-                                )
-                            );
-
-                            foreach ($menu_items[$current_language] as $label => $url) :
-                            ?>
-                                <li><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($label); ?></a></li>
-                            <?php endforeach; ?>
+                        <?php
+                            wp_nav_menu(array(
+                                'theme_location' => 'primary-menu',
+                                'menu_class'     => 'mobile-menu',
+                                'container'      => false,
+                                'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
+                                'walker'         => new Walker_Nav_Menu()
+                            ));
+                        ?>
                         </ul>
                     </div>
                 </div>
@@ -161,6 +150,7 @@
                         <ul class="footer-nav">
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
                         </ul>
                     </div>
                 </div>
@@ -176,7 +166,11 @@
                 <div class="col-auto">
                     <div class="footer-bottom-left">
                         <div class="footer-copyright">
-                        <p class="copyright-text">&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">Interreg</a> Made with <i class="icofont-heart"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a></p>                        </div>
+                        <p class="copyright-text">
+                            &copy; <?php echo date('Y'); ?> 
+                            <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">Transfrtrontaliera</a> Made with <i class="icofont-heart"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a>
+                        </p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-auto">

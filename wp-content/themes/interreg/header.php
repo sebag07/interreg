@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
                     'walker'         => new Walker_Nav_Menu()
                 ));
-                ?>
+            ?>
             </div> <!-- End Mobile Menu Nav -->
         </div> <!-- End Mobile Menu -->
 
