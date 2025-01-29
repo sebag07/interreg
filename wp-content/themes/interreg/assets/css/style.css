@@ -20006,6 +20006,13 @@ Components - Sidebar Widget
   padding: 20px 0;
 }
 
+.mobile-header .mobile-logo > a > img {
+  width: 100%;
+  max-height: 90px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .mobile-action-link {
   font-size: 24px;
 }
