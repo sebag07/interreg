@@ -17924,6 +17924,12 @@ input, textarea {
   }
 }
 
+@media screen and (max-width: 991px) {
+  .sub-clients-logo-row .clients-logo-single-item {
+    margin-bottom: 25px;
+  }
+}
+
 /*.client-logo-display-single-item .image:hover {*/
 /*  -webkit-filter: invert(62%) sepia(44%) saturate(4989%) hue-rotate(342deg) brightness(99%) contrast(93%);*/
 /*          filter: invert(62%) sepia(44%) saturate(4989%) hue-rotate(342deg) brightness(99%) contrast(93%);*/
