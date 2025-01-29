@@ -1,85 +1,54 @@
     <!-- .....:::::: Start Service Display Section :::::.... -->
-    <div class="service-display-section section-top-space">
+    <div id="services" class="service-display-section section-top-space">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <!-- Start Section Content -->
                     <div class="section-content section-content-space text-center">
-                        <h4 class="title-tag text-gradient">OUR SERVICES</h4>
-                        <h2 class="title">Who will benefit?</h2>
+                        <?php 
+                        $sup_title = get_field('services_sup_title');
+                        $main_title = get_field('services_title');
+                        ?>
+                        <?php if ($sup_title) : ?>
+                            <h4 class="title-tag text-gradient"><?php echo esc_html($sup_title); ?></h4>
+                        <?php endif; ?>
+                        <?php if ($main_title) : ?>
+                            <h2 class="title"><?php echo esc_html($main_title); ?></h2>
+                        <?php endif; ?>
                     </div>
                     <!-- End Section Content -->
                 </div>
             </div>
             <div class="service-display-wrapper">
                 <div class="row">
-                    <div class="col-12 service-plus-icon-seperator">
-                        <!-- Start Service Single Item -->
-                        <div class="service-single-item">
-                            <div class="icon">
-                                <img class="img-fluid"
-                                     src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/service-icon-1.png"
-                                     alt="">
-                            </div>
-                            <div class="content">
-                                <h4 class="title">Local and Regional Public Authority</h4>
-                                <!--                            <a href="service-details.html" class="btn btn-sm btn-outline-primary text-uppercase">-->
-                                <!--                                <span>details <i class="icofont-double-right icon-space-left"></i></span> </a>-->
-                            </div>
-                        </div>
-                        <!-- End Service Single Item -->
-                        <!-- Start Service Single Item -->
-                        <div class="service-single-item">
-                            <div class="icon">
-                                <img class="img-fluid"
-                                     src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/service-icon-2.png"
-                                     alt="">
-                            </div>
-                            <div class="content">
-                                <h4 class="title">National Public Authority</h4>
-                                <!--                            <a href="service-details.html" class="btn btn-sm btn-outline-primary text-uppercase">-->
-                                <!--                                <span>details <i class="icofont-double-right icon-space-left"></i></span> </a>-->
-                            </div>
-                        </div>
-                        <!-- End Service Single Item -->
-                        <!-- Start Service Single Item -->
-                        <div class="service-single-item">
-                            <div class="icon">
-                                <img class="img-fluid"
-                                     src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/service-icon-3.png"
-                                     alt="">
-                            </div>
-                            <div class="content">
-                                <h4 class="title">Higher Education and Research Organisations</h4>
-                                <!--                            <a href="service-details.html" class="btn btn-sm btn-outline-primary text-uppercase">-->
-                                <!--                                <span>details <i class="icofont-double-right icon-space-left"></i></span> </a>-->
-                            </div>
-                        </div>
-                        <!-- End Service Single Item -->
-                        <!-- Start Service Single Item -->
-                        <div class="service-single-item">
-                            <div class="icon">
-                                <img class="img-fluid"
-                                     src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/service-icon-4.png"
-                                     alt="">
-                            </div>
-                            <div class="content">
-                                <h4 class="title">General Public</h4>
-                                <!--                            <a href="service-details.html" class="btn btn-sm btn-outline-primary text-uppercase">-->
-                                <!--                                <span>details <i class="icofont-double-right icon-space-left"></i></span> </a>-->
-                            </div>
-                        </div>
-                        <!-- End Service Single Item -->
+                <div class="col-12 service-plus-icon-seperator">
+                        <?php
+                        if (have_rows('services_repeater')) :
+                            while (have_rows('services_repeater')) : the_row();
+                                $icon = get_sub_field('icon');
+                                $title = get_sub_field('title');
+                        ?>
+                                <!-- Start Service Single Item -->
+                                <div class="service-single-item">
+                                    <div class="icon">
+                                        <?php if ($icon) : ?>
+                                            <img class="img-fluid" src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>">
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="content">
+                                        <?php if ($title) : ?>
+                                            <h4 class="title"><?php echo esc_html($title); ?></h4>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <!-- End Service Single Item -->
+                        <?php
+                            endwhile;
+                        endif;
+                        ?>
                     </div>
                 </div>
-                <!--            <div class="row">-->
-                <!--                <div class="col text-center p-t-100">-->
-                <!--                    <a href="service-list.html" class="btn btn-lg btn-primary">Others Service <i-->
-                <!--                            class="icofont-double-right icon-space-left"></i></a>-->
-                <!--                </div>-->
-                <!--            </div>-->
             </div>
-
         </div>
     </div>
     <!-- .....:::::: End Service Display Section :::::.... -->

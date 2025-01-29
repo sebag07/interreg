@@ -4,13 +4,27 @@
   "type": "project",
   "require": {
     "php": ">=8.0",
-    "wordpress/core": "^6.4",
+    "johnpbloch/wordpress-core": "^6.4",
+    "johnpbloch/wordpress-core-installer": "^2.0",
     "composer/installers": "^2.0"
   },
   "config": {
     "allow-plugins": {
-      "composer/installers": true
+      "composer/installers": true,
+      "johnpbloch/wordpress-core-installer": true
     }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php -r \"if (is_dir('wordpress/wp-content')) shell_exec('rm -rf wordpress/wp-content');\"",
+      "php -r \"shell_exec('cp -r wordpress/* . && rm -rf wordpress');\"",
+      "php -r \"if (file_exists('wp-config-sample.php')) rename('wp-config-sample.php', 'wp-config.php');\""
+    ],
+    "post-update-cmd": [
+      "php -r \"if (is_dir('wordpress/wp-content')) shell_exec('rm -rf wordpress/wp-content');\"",
+      "php -r \"shell_exec('cp -r wordpress/* . && rm -rf wordpress');\"",
+      "php -r \"if (file_exists('wp-config-sample.php')) rename('wp-config-sample.php', 'wp-config.php');\""
+    ]
   },
   "extra": {
     "installer-paths": {

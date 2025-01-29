@@ -8,6 +8,28 @@ wp-content/uploads/
 wp-content/themes/*
 !wp-content/themes/interreg/
 
+wp-admin/
+wp-includes/
+
+.htaccess
+wp-activate.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+wp-blog-header.php
+wp-comments-post.php
+wp-login.php
+xmlrpc.php
+
+local-xdebuginfo.php
+license.txt
+index.php
+readme.html
+
 # Ignore system files
 .DS_Store
 Thumbs.db
