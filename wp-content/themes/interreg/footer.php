@@ -134,7 +134,7 @@
                         </ul>
                     </div>
                 </div>
-                <!-- <div class="col-xl-auto col-md-6 col-12">
+                <div class="col-xl-auto col-md-6 col-12">
                     <div class="footer-widget-single-item">
                         <h3 class="title">QUICK LINKS</h3>
                         <ul class="footer-nav">
@@ -142,7 +142,7 @@
                             <li><a href="#">Cookie Policy</a></li>
                         </ul>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
