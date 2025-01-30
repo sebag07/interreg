@@ -3,8 +3,8 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Interreg - Environmental risk assessment from mining activities</title>
-    <meta name="description" content="Environmental risk assessment from mining activities as a result of tailings storage in the crossborder area Romania – Serbia"/>
+	<!-- <title>Transfrontaliera - Environmental risk assessment from mining activities</title>
+    <meta name="description" content="Environmental risk assessment from mining activities as a result of tailings storage in the crossborder area Romania – Serbia"/> -->
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
