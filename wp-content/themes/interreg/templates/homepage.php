@@ -36,9 +36,9 @@ get_header();
                             <div class="col-xl-8 col-lg-10 offset-lg-1 col-12">
                                 <div class="content-box">
                                     <h4 class="sup-title"><?php echo esc_html($sup_title); ?></h4>
+                                    <img class="interreg-main-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/interreg.png" alt="interreg">
                                     <h2 class="title"><?php echo esc_html($title); ?></h2>
                                     <h5 class="sub-title"><?php echo esc_html($sub_title); ?></h5>
-
                                     <a href="<?php echo esc_url($button_url); ?>" class="btn btn-lg btn-primary"><?php echo esc_html($button_text); ?> <i class="icofont-double-right icon-space-left"></i></a>
                                 </div>
                             </div>

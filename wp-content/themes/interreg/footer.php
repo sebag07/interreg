@@ -3,7 +3,7 @@
 <footer class="footer-section footer-bg">
 
     <!-- Start Footer Center -->
-    <div class="footer-center section-top-space">
+    <div class="footer-center">
         <div class="container">
             <div class="row justify-content-xl-between">
                 <div class="col-xl-auto col-md-6 col-12">

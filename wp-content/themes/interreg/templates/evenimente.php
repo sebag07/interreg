@@ -4,6 +4,7 @@
  */
 
 get_header();
+
 ?>
 
 <main class="main-wrapper">
@@ -49,9 +50,9 @@ get_header();
     <!-- .....:::::: End Breadcrumb Section :::::.... -->
 
     <!-- .....:::::: Start Blog Feed Display Section :::::.... -->
-    <div class="blog-section section-inner-gap section-fluid">
+    <div class="blog-section section-inner-gap">
         <div class="blog-section-wrapper">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <?php
                     $args = array(
@@ -66,7 +67,7 @@ get_header();
                     ?>
                         <div class="col-xxl-4 col-sm-6 col-12">
                             <!-- Start Blog Feed Single Item  -->
-                            <div class="blog-feed-slider-single-item swiper-slide">
+                            <div class="blog-feed-slider-single-item">
                                 <a href="<?php the_permalink(); ?>" class="image">
                                     <?php the_post_thumbnail('large'); ?>
                                 </a>

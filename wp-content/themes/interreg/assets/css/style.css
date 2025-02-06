@@ -16514,6 +16514,25 @@ input, textarea {
   }
 }
 
+.interreg-main-logo {
+  width: auto;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 991px){
+  .interreg-main-logo {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .interreg-main-logo {
+    max-width: 100%;
+  }
+}
+
 .hero-slider-single-item {
   position: relative;
 }
@@ -16525,6 +16544,8 @@ input, textarea {
   -webkit-transform: translateY(-50%) translateX(-50%);
           transform: translateY(-50%) translateX(-50%);
   color: #fff;
+  width: 100%;
+  max-width: 800px;
 }
 @media screen and (max-width: 576px){
   .hero-slider-single-item .content-box {

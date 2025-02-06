@@ -15,7 +15,7 @@
 							// First logo - centered in col-6
 			?>
 							<div class="row justify-content-center">
-								<div class="clients-logo-single-item col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="clients-logo-single-item col-lg-8 col-md-12 col-sm-12 col-12">
 									<?php if ($logo_url) : ?>
 										<a href="<?php echo esc_url($logo_url); ?>" class="image">
 										<?php endif; ?>
