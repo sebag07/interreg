@@ -1,5 +1,5 @@
-<!-- .....:::::: Start Blog Feed Display Section :::::.... -->
-<div id="events" class="blog-feed-display-section section-inner-gap section-fluid">
+<!-- Start Blog Feed Display Section -->
+<section id="events" class="blog-feed-display-section section-inner-gap section-fluid" aria-labelledby="events-section-title">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-xxl-4 col-xl-6">
@@ -14,11 +14,11 @@
                     ?>
 
                     <?php if ($sup_title) : ?>
-                        <h4 class="title-tag text-gradient"><?php echo esc_html($sup_title); ?></h4>
+                        <p class="title-tag text-gradient"><?php echo esc_html($sup_title); ?></p>
                     <?php endif; ?>
 
                     <?php if ($title) : ?>
-                        <h2 class="title"><?php echo esc_html($title); ?></h2>
+                        <h2 id="events-section-title" class="title"><?php echo esc_html($title); ?></h2>
                     <?php endif; ?>
 
                     <?php if ($description) : ?>
@@ -35,7 +35,7 @@
             <div class="col-xxl-8 col-xl-6 col-lg-12">
                 <div class="blog-feed-slider">
                     <!-- Slider main container -->
-                    <div class="swiper-container">
+                    <div class="swiper-container" aria-label="Event Slider">
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
@@ -54,11 +54,11 @@
                                     $event_date = get_field('date', get_the_ID());
                             ?>
                                     <!-- Start Blog Feed Single Item  -->
-                                    <div class="blog-feed-slider-single-item swiper-slide">
-                                        <a href="<?php the_permalink(); ?>" class="image">
+                                    <article class="blog-feed-slider-single-item swiper-slide">
+                                        <a href="<?php the_permalink(); ?>" class="image" aria-hidden="true" tabindex="-1">
                                             <?php
                                             if (has_post_thumbnail()) {
-                                                the_post_thumbnail('full');
+                                                the_post_thumbnail('full', array('alt' => get_the_title()));
                                             }
                                             ?>
                                         </a>
@@ -66,23 +66,20 @@
                                         <div class="content">
                                             <ul class="blog-meta meta-box">
                                                 <li>
-                                                    <a href="<?php the_permalink(); ?>" class="date icon-space-right">
-                                                        <i class="icofont-ui-calendar"></i>
+                                                    <span class="date icon-space-right">
+                                                        <i class="icofont-ui-calendar" aria-hidden="true"></i>
                                                         <span class="text">
                                                             <?php
                                                             if ($event_date) {
-                                                                // Check if $event_date is already a timestamp
                                                                 if (is_numeric($event_date)) {
                                                                     $timestamp = $event_date;
                                                                 } else {
-                                                                    // If it's not a timestamp, try to convert it
                                                                     $timestamp = strtotime($event_date);
                                                                 }
 
                                                                 if ($timestamp !== false) {
                                                                     echo esc_html(date_i18n('d.m.Y', $timestamp));
                                                                 } else {
-                                                                    // If conversion fails, output the raw date
                                                                     echo esc_html($event_date);
                                                                 }
                                                             } else {
@@ -90,7 +87,7 @@
                                                             }
                                                             ?>
                                                         </span>
-                                                    </a>
+                                                    </span>
                                                 </li>
                                             </ul>
 
@@ -106,11 +103,11 @@
                                                         echo 'read more';
                                                     }
                                                     ?>
-                                                    <i class="icofont-double-right icon-space-left"></i>
+                                                    <i class="icofont-double-right icon-space-left" aria-hidden="true"></i>
                                                 </span>
                                             </a>
                                         </div>
-                                    </div>
+                                    </article>
                                     <!-- End Blog Feed Single Item  -->
                             <?php
                                 endwhile;
@@ -123,5 +120,5 @@
             </div>
         </div>
     </div>
-</div>
-<!-- .....:::::: End Blog Feed Display Section :::::.... -->
+</section>
+<!-- End Blog Feed Display Section -->
