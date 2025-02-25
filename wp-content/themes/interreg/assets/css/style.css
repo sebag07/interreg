@@ -16722,6 +16722,7 @@ input, textarea {
   padding: 25px;
   width: 100%;
   height: auto;
+  width: auto;
 }
 .promo-single-item .content {
   width: 100%;
@@ -17940,6 +17941,8 @@ input, textarea {
 .clients-logo-single-item .clients-logo-image {
   max-height: 100px;
   max-width: 200px;
+  height: auto;
+  width: auto;
 }
 
 @media screen and (max-width: 767px) {

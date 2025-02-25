@@ -42,7 +42,7 @@
                             ?>
                         </nav>
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto" style="display: flex; gap: 15px;">
                         <!-- Start Header Social Link -->
                         <?php if (have_rows('socials_repeater', 'option')) : ?>
                             <ul class="social-link social-link-white" aria-label="<?php esc_attr_e( 'Social Media Links', 'interreg' ); ?>">
@@ -61,6 +61,18 @@
                                 <?php endwhile; ?>
                             </ul>
                         <?php endif; ?>
+                        <ul class="social-link social-link-white" aria-label="<?php esc_attr_e( 'Magnifier Links', 'interreg' ); ?>">
+                            <li>
+                                <a href="zoom-in" id="zoom-in-btn" aria-label="<?php esc_attr_e('Increase text size', 'interreg'); ?>">
+                                    <i class="icofont-ui-zoom-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="zoom-out" id="zoom-out-btn" aria-label="<?php esc_attr_e('Decrease text size', 'interreg'); ?>">
+                                    <i class="icofont-ui-zoom-out"></i>
+                                </a>
+                            </li>
+                        </ul>
                         <!-- End Header Social Link -->
                     </div>
                 </div>
@@ -265,5 +277,62 @@
     
         // Initial setup
         closeMobileMenu();
+    });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get zoom buttons
+        const zoomInBtn = document.getElementById('zoom-in-btn');
+        const zoomOutBtn = document.getElementById('zoom-out-btn');
+        
+        // Set zoom levels to match standard browser zoom increments (including zoom out levels)
+        const zoomLevels = [0.5, 0.67, 0.75, 0.8, 0.9, 1.0, 1.1, 1.25, 1.33, 1.4, 1.5];
+        let currentZoomIndex = 5; // Default to 1.0 (index 5)
+        
+        // Get current zoom level from localStorage or use default
+        const savedZoom = parseFloat(localStorage.getItem('siteZoomLevel')) || 1.0;
+        
+        // Find the closest zoom level index
+        currentZoomIndex = zoomLevels.findIndex(level => level >= savedZoom);
+        if (currentZoomIndex === -1) currentZoomIndex = zoomLevels.length - 1;
+        
+        // Apply saved zoom level on page load
+        applyZoom(zoomLevels[currentZoomIndex]);
+        
+        // Zoom in button click handler
+        zoomInBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (currentZoomIndex < zoomLevels.length - 1) {
+                currentZoomIndex++;
+                applyZoom(zoomLevels[currentZoomIndex]);
+                saveZoomLevel(zoomLevels[currentZoomIndex]);
+            }
+        });
+        
+        // Zoom out button click handler
+        zoomOutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (currentZoomIndex > 0) {
+                currentZoomIndex--;
+                applyZoom(zoomLevels[currentZoomIndex]);
+                saveZoomLevel(zoomLevels[currentZoomIndex]);
+            }
+        });
+        
+        // Apply zoom to the body element
+        function applyZoom(zoom) {
+            document.body.style.zoom = zoom;
+            // For Firefox which doesn't support zoom
+            if (navigator.userAgent.indexOf('Firefox') !== -1) {
+                document.body.style.transform = `scale(${zoom})`;
+                document.body.style.transformOrigin = 'top center';
+            }
+        }
+        
+        // Save zoom level to localStorage
+        function saveZoomLevel(zoom) {
+            localStorage.setItem('siteZoomLevel', zoom.toString());
+        }
     });
     </script>
