@@ -2,9 +2,9 @@
 <div class="testimonial-display-section section-top-space section-inner-gap section-inner-bg section-fluid pos-relative">
 	<div class="container">
 		<div class="row">
-			<div class="col-xxl-5">
+			<div class="col-12">
 				<!-- Start Section Content -->
-				<div class="section-content section-content-space text-center text-xxl-start">
+				<div class="section-content section-content-space text-center">
 					<h4 class="title-tag text-gradient">
 						<?php
 							if (function_exists('icl_object_id')) {
@@ -29,125 +29,89 @@
 				<!-- End Section Content -->
 
 				<div class="tab-content">
-					<div class="testimonial-single-item tab-pane fade show active" id="testimonial-1"
-					     role="tabpanel">
-						<div class="content">
-							<p class="text">It is a long established fact that a reader will
-								distracted by the reasdable and content page
-								looking at it and ayout the point using is that
-								normal distribution of letters.</p>
+					<?php
+					// Check if the team_members repeater field exists
+					if (have_rows('team_members')) :
+						$counter = 0;
+						// Loop through each team member
+						while (have_rows('team_members')) : the_row();
+							$counter++;
+							// Get the ACF fields for each team member
+							$member_description = get_sub_field('member_description');
+							$member_name = get_sub_field('member_name');
+							$member_position = get_sub_field('member_position');
+							
+							// Determine if this is the first item (active)
+							$active_class = ($counter === 1) ? 'show active' : '';
+					?>
+						<div class="testimonial-single-item tab-pane fade <?php echo $active_class; ?>" id="testimonial-<?php echo $counter; ?>" role="tabpanel">
+							<div class="content">
+								<?php if ($member_description) : ?>
+									<p class="text"><?php echo esc_html($member_description); ?></p>
+								<?php endif; ?>
 
-							<h2 class="name">Tonya Anderson</h2>
-							<span class="designation">CEO OF INDUSTE, USA</span>
+								<?php if ($member_name) : ?>
+									<h2 class="name"><?php echo esc_html($member_name); ?></h2>
+								<?php endif; ?>
+								
+								<?php if ($member_position) : ?>
+									<span class="designation"><?php echo esc_html($member_position); ?></span>
+								<?php endif; ?>
+							</div>
 						</div>
-					</div>
-					<div class="testimonial-single-item tab-pane fade" id="testimonial-2" role="tabpanel">
-						<div class="content">
-							<p class="text">It is a long established fact that a reader will
-								distracted by the reasdable and content page
-								looking at it and ayout the point using is that
-								normal distribution of letters.</p>
-
-							<h2 class="name">Kevin L. Davis</h2>
-							<span class="designation">CEO OF INDUSTE, USA</span>
+					<?php
+						endwhile;
+					else :
+						// Fallback if no team members are found
+					?>
+						<div class="testimonial-single-item tab-pane fade show active" id="testimonial-1" role="tabpanel">
+							<div class="content">
+								<p class="text">No team members found.</p>
+							</div>
 						</div>
-					</div>
-					<div class="testimonial-single-item tab-pane fade" id="testimonial-3" role="tabpanel">
-						<div class="content">
-							<p class="text">It is a long established fact that a reader will
-								distracted by the reasdable and content page
-								looking at it and ayout the point using is that
-								normal distribution of letters.</p>
-
-							<h2 class="name">Todd A. Hogan</h2>
-							<span class="designation">CEO OF INDUSTE, USA</span>
-						</div>
-					</div>
-					<div class="testimonial-single-item tab-pane fade" id="testimonial-4" role="tabpanel">
-						<div class="content">
-							<p class="text">It is a long established fact that a reader will
-								distracted by the reasdable and content page
-								looking at it and ayout the point using is that
-								normal distribution of letters.</p>
-
-							<h2 class="name">Harold S. Powers</h2>
-							<span class="designation">CEO OF INDUSTE, USA</span>
-						</div>
-					</div>
-					<div class="testimonial-single-item tab-pane fade" id="testimonial-5" role="tabpanel">
-						<div class="content">
-							<p class="text">It is a long established fact that a reader will
-								distracted by the reasdable and content page
-								looking at it and ayout the point using is that
-								normal distribution of letters.</p>
-
-							<h2 class="name">Adriana M. Hennessy</h2>
-							<span class="designation">CEO OF INDUSTE, USA</span>
-						</div>
-					</div>
-					<div class="testimonial-single-item tab-pane fade" id="testimonial-6" role="tabpanel">
-						<div class="content">
-							<p class="text">It is a long established fact that a reader will
-								distracted by the reasdable and content page
-								looking at it and ayout the point using is that
-								normal distribution of letters.</p>
-
-							<h2 class="name">Paula M. Miller</h2>
-							<span class="designation">CEO OF INDUSTE, USA</span>
-						</div>
-					</div>
-					<div class="testimonial-single-item tab-pane fade" id="testimonial-7" role="tabpanel">
-						<div class="content">
-							<p class="text">It is a long established fact that a reader will
-								distracted by the reasdable and content page
-								looking at it and ayout the point using is that
-								normal distribution of letters.</p>
-
-							<h2 class="name">Nicky F. Eickhoff</h2>
-							<span class="designation">CEO OF INDUSTE, USA</span>
-						</div>
-					</div>
-
+					<?php endif; ?>
 				</div>
 			</div>
-			<div class="col-xl-6 offset-lg-1 d-none d-xxl-block">
-				<div class="quite-icon">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/quotation-orange.png" alt="">
-				</div>
+			<div class="col-12">
+				<ul class="testimonial-tab nav nav-tabs" role="tablist">
+					<?php
+					// Reset the repeater query to start from the beginning
+					if (have_rows('team_members')) :
+						$counter = 0;
+						
+						// Loop through each team member again for the navigation
+						while (have_rows('team_members')) : the_row();
+							$counter++;
+							$member_image = get_sub_field('member_image');
+							$member_name = get_sub_field('member_name');
+							$active_class = ($counter === 1) ? 'active' : '';
+							
+							// Determine border class based on position
+							$border_class = ($counter % 2 === 0) ? 'textimonial-curve-border-center' : 'textimonial-curve-border-outside';
+					?>
+						<li class="nav-item textimonial-curve-border <?php echo $border_class; ?>">
+							<button class="nav-link <?php echo $active_class; ?>" data-bs-toggle="tab" data-bs-target="#testimonial-<?php echo $counter; ?>">
+								<?php if ($member_image) : ?>
+									<img src="<?php echo esc_url($member_image['url']); ?>" alt="<?php echo esc_attr($member_name); ?>">
+								<?php else : ?>
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-<?php echo min($counter, 7); ?>.png" alt="<?php echo esc_attr($member_name); ?>">
+								<?php endif; ?>
+							</button>
+						</li>
+					<?php
+						endwhile;
+					else :
+						// Fallback if no team members are found
+					?>
+						<li class="nav-item textimonial-curve-border textimonial-curve-border-outside">
+							<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#testimonial-1">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-1.png" alt="">
+							</button>
+						</li>
+					<?php endif; ?>
+				</ul>
 			</div>
 		</div>
 	</div>
-	<ul class="testimonial-tab nav nav-tabs" role="tablist">
-		<li class="nav-item textimonial-curve-border textimonial-curve-border-outside">
-			<button class="nav-link active" data-bs-toggle="tab"
-			        data-bs-target="#testimonial-1">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-1.png" alt="">
-			</button>
-			<button class="nav-link" data-bs-toggle="tab" data-bs-target="#testimonial-3">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-3.png" alt="">
-			</button>
-			<button class="nav-link" data-bs-toggle="tab" data-bs-target="#testimonial-7">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-7.png" alt="">
-			</button>
-		</li>
-
-		<li class="nav-item textimonial-curve-border textimonial-curve-border-center">
-			<button class="nav-link" data-bs-toggle="tab" data-bs-target="#testimonial-2">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-2.png" alt="">
-			</button>
-			<button class="nav-link" data-bs-toggle="tab" data-bs-target="#testimonial-6">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-6.png" alt="">
-			</button>
-		</li>
-
-		<li class="nav-item textimonial-curve-border textimonial-curve-border-inside">
-			<button class="nav-link" data-bs-toggle="tab" data-bs-target="#testimonial-4">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-4.png" alt="">
-			</button>
-			<button class="nav-link" data-bs-toggle="tab" data-bs-target="#testimonial-5">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial/testimonial-person-5.png" alt="">
-			</button>
-		</li>
-	</ul>
 </div>
 <!-- .....:::::: End Testimonial Display Section :::::.... -->
