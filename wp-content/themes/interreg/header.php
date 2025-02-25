@@ -133,17 +133,14 @@
                 <?php 
                     if (have_rows('socials_repeater', 'option')) : 
                         while (have_rows('socials_repeater', 'option')) : the_row();
-                            $icon = get_sub_field('icon');
                             $url = get_sub_field('url');
                             $custom_icon = get_sub_field('custom_icon');
-                            $social_name = get_sub_field('social_name'); // Add this field in ACF
+                            $social_name = get_sub_field('name'); // Add this field in ACF
                     ?>
                         <li>
                             <a target="_blank" href="<?php echo esc_url($url); ?>" aria-label="<?php echo esc_attr($social_name); ?>">
                                 <?php if ($custom_icon) : ?>
-                                    <img src="<?php echo esc_url($custom_icon['url']); ?>" alt="" width="15" height="15">
-                                <?php else : ?>
-                                    <i class="icofont-<?php echo esc_attr($icon); ?>" aria-hidden="true"></i>
+                                    <img src="<?php echo esc_url($custom_icon['url']); ?>" alt="<?php echo esc_attr($social_name); ?> Social Icon" width="15" height="15">
                                 <?php endif; ?>
                             </a>
                         </li>
