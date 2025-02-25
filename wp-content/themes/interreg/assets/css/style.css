@@ -16545,7 +16545,7 @@ input, textarea {
           transform: translateY(-50%) translateX(-50%);
   color: #fff;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
 }
 @media screen and (max-width: 576px){
   .hero-slider-single-item .content-box {
@@ -16587,10 +16587,15 @@ input, textarea {
   }
 }
 .hero-slider-single-item .title {
-  font-size: 60px;
+  font-size: 45px;
   text-transform: uppercase;
   line-height: 0.85;
   margin-bottom: 20px;
+}
+@media (min-width: 767px){
+  .hero-slider-single-item .title {
+    font-size: 50px;
+  }
 }
 @media (min-width: 1200px) {
   .hero-slider-single-item .title {
@@ -16611,6 +16616,11 @@ input, textarea {
   line-height: 1;
   margin-bottom: 45px;
 }
+@media (min-width: 767px) {
+  .hero-slider-single-item .sub-title {
+    font-size: 24px;
+  }
+}
 @media (min-width: 1200px) {
   .hero-slider-single-item .sub-title {
     font-size: 35px;
@@ -16628,7 +16638,7 @@ input, textarea {
 }
 @media (max-width: 767px) {
   .hero-slider-single-item .sub-title {
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 25px;
     margin-bottom: 25px;
   }
