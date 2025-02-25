@@ -177,8 +177,7 @@
                                 ?>
                                     <li>
                                         <a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer">
-                                            <span class="sr-only"><?php echo esc_html($text); ?></span>
-                                            <i class="icofont-<?php echo strtolower($text); ?>" aria-hidden="true"></i>
+                                            <?php echo esc_html($text); ?>
                                         </a>
                                     </li>
                                 <?php endwhile; ?>

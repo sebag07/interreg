@@ -20023,7 +20023,7 @@ Components - Sidebar Widget
   color: #fff;
 }
 
-.footer-soacial {
+.footer-social {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20033,11 +20033,11 @@ Components - Sidebar Widget
       -ms-flex-align: center;
           align-items: center;
 }
-.footer-soacial li {
+.footer-social li {
   margin-right: 30px;
   position: relative;
 }
-.footer-soacial li::after {
+.footer-social li::after {
   content: "|";
   position: absolute;
   display: block;
@@ -20047,17 +20047,17 @@ Components - Sidebar Widget
           transform: translateY(-50%);
   left: calc(100% + 15px);
 }
-.footer-soacial li:last-child {
+.footer-social li:last-child {
   margin-right: 0;
 }
-.footer-soacial li:last-child::after {
+.footer-social li:last-child::after {
   display: none;
 }
-.footer-soacial a {
+.footer-social a {
   color: #fff;
   text-transform: capitalize;
 }
-.footer-soacial a:hover {
+.footer-social a:hover {
   color: #fe8403;
 }
 
@@ -20514,7 +20514,7 @@ textarea:focus,
 
 /* Improve visibility of focused elements in the footer */
 .footer-nav a:focus,
-.footer-soacial a:focus {
+.footer-social a:focus {
   outline: 2px solid #89CFF0;
   outline-offset: 2px;
 }
