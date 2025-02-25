@@ -159,9 +159,9 @@ get_header();
 
 <?php get_template_part( '/templates/homepage-templates/clients-swiper' ); ?>
 
-<?php get_template_part( '/templates/homepage-templates/our-services' ); ?>
-
 <?php get_template_part( '/templates/homepage-templates/how-it-works' ); ?>
+
+<?php get_template_part( '/templates/homepage-templates/our-services' ); ?>
 
 <?php get_template_part( '/templates/homepage-templates/testimonials' ); ?>
 

@@ -1,12 +1,30 @@
 <!-- .....:::::: Start Testimonial Display Section :::::.... -->
-<div class="testimonial-display-section section-top-space section-inner-gap section-inner-bg section-fluid pos-relative d-none">
+<div class="testimonial-display-section section-top-space section-inner-gap section-inner-bg section-fluid pos-relative">
 	<div class="container">
 		<div class="row">
 			<div class="col-xxl-5">
 				<!-- Start Section Content -->
 				<div class="section-content section-content-space text-center text-xxl-start">
-					<h4 class="title-tag text-gradient">happy customer</h4>
-					<h2 class="title title-dash">SAY ABOUT US.</h2>
+					<h4 class="title-tag text-gradient">
+						<?php
+							if (function_exists('icl_object_id')) {
+								$current_language = apply_filters('wpml_current_language', NULL);
+								echo $current_language == 'ro' ? 'Despre Echipa' : 'About Our Team';
+							} else {
+								echo 'About Our Team';
+							}
+						?>
+					</h4>
+					<h2 class="title title-dash">
+						<?php
+							if (function_exists('icl_object_id')) {
+								$current_language = apply_filters('wpml_current_language', NULL);
+								echo $current_language == 'ro' ? 'ECHIPA NOASTRĂ' : 'THE TEAM';
+							} else {
+								echo 'THE TEAM';
+							}
+						?>
+					</h2>
 				</div>
 				<!-- End Section Content -->
 
