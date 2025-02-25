@@ -20543,3 +20543,10 @@ textarea:focus,
   color: #fff;
 }
 
+.wpml-ls-statics-footer {
+  display: none !important;
+}
+
+.otgs-development-site-front-end {
+  display: none !important;
+}
