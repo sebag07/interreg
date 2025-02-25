@@ -98,7 +98,7 @@
   --bs-body-font-size: 0.875rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #757575;
+  --bs-body-color: #000;
   --bs-body-bg: #fff;
   --bs-border-width: 1px;
   --bs-border-style: solid;
@@ -3446,7 +3446,7 @@ textarea.form-control-lg {
   --bs-btn-font-size: 0.875rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
-  --bs-btn-color: #757575;
+  --bs-btn-color: #000;
   --bs-btn-bg: transparent;
   --bs-btn-border-width: 1px;
   --bs-btn-border-color: transparent;
@@ -3909,7 +3909,7 @@ textarea.form-control-lg {
   --bs-dropdown-padding-y: 8px;
   --bs-dropdown-spacer: 2px;
   --bs-dropdown-font-size: 0.875rem;
-  --bs-dropdown-color: #757575;
+  --bs-dropdown-color: #000;
   --bs-dropdown-bg: #fff;
   --bs-dropdown-border-color: rgba(0, 0, 0, 0.15);
   --bs-dropdown-border-radius: 4px;
@@ -15514,7 +15514,7 @@ body {
   position: relative;
   visibility: visible;
   background: #fff;
-  color: #757575;
+  color: #000;
 }
 body[dir=rtl] {
   text-align: right;
@@ -16439,7 +16439,7 @@ input, textarea {
 }
 .btn-outline-primary {
   border: 1px solid #f2ede9;
-  color: #757575;
+  color: #000;
   font-weight: 500;
   padding: 8px 30px;
 }
@@ -20020,7 +20020,7 @@ Components - Sidebar Widget
   color: #fff;
 }
 .footer-copyright a, .footer-copyright i {
-  color: #fe8403;
+  color: #fff;
 }
 
 .footer-soacial {
@@ -20480,3 +20480,66 @@ Components - Sidebar Widget
 .no-csspointerevents .nice-select.open .list {
   display: block;
 }
+
+/* Add focus styles for interactive elements */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: 2px solid #89CFF0 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px #89CFF0 !important; /* Duplicate the outline as a box-shadow for better visibility */
+}
+
+/* Ensure the focus style is visible on high-contrast mode */
+@media (forced-colors: active) {
+  a:focus,
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus,
+  [tabindex]:focus {
+    outline: 2px solid #89CFF0;
+    outline-offset: 2px;
+  }
+}
+
+/* Ensure focus styles are visible in the offcanvas menu */
+.offcanvas-menu li a:focus {
+  outline: 2px solid #89CFF0;
+  outline-offset: 2px;
+}
+
+/* Improve visibility of focused elements in the footer */
+.footer-nav a:focus,
+.footer-soacial a:focus {
+  outline: 2px solid #89CFF0;
+  outline-offset: 2px;
+}
+
+/* Ensure the scroll-to-top button is keyboard accessible */
+.material-scrolltop:focus {
+  outline: 2px solid #89CFF0;
+  outline-offset: 2px;
+}
+
+@media (min-width: 992px) {
+  .offcanvas-mobile-menu-section {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.offcanvas-mobile-menu-section.is-active {
+  display: block;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.icofont-navigation-menu {
+  color: #fff;
+}
+

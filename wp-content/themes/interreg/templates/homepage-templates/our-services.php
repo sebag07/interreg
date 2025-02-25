@@ -21,7 +21,7 @@
             </div>
             <div class="service-display-wrapper">
                 <div class="row">
-                    <div class="col-12 service-plus-icon-seperator">
+                    <ul class="service-list col-12 service-plus-icon-seperator" role="list">
                             <?php
                             if (have_rows('services_repeater')) :
                                 $service_count = 0;
@@ -47,8 +47,7 @@
                                 endwhile;
                             endif;
                             ?>
-                        <!-- </ul> -->
-                    </div>
+                        </ul>
                 </div>
             </div>
         </div>

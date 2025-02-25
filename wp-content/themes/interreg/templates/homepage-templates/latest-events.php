@@ -1,5 +1,5 @@
 <!-- Start Blog Feed Display Section -->
-<section id="events" class="blog-feed-display-section section-inner-gap section-fluid" aria-labelledby="events-section-title">
+<section id="events" class="blog-feed-display-section section-inner-gap section-fluid">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-xxl-4 col-xl-6">
@@ -35,7 +35,8 @@
             <div class="col-xxl-8 col-xl-6 col-lg-12">
                 <div class="blog-feed-slider">
                     <!-- Slider main container -->
-                    <div class="swiper-container" aria-label="Event Slider">
+                    <div class="swiper-container">
+                        <h3 class="visually-hidden">Event Slider</h3>
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
@@ -54,60 +55,61 @@
                                     $event_date = get_field('date', get_the_ID());
                             ?>
                                     <!-- Start Blog Feed Single Item  -->
-                                    <article class="blog-feed-slider-single-item swiper-slide">
-                                        <a href="<?php the_permalink(); ?>" class="image" aria-hidden="true" tabindex="-1">
-                                            <?php
-                                            if (has_post_thumbnail()) {
-                                                the_post_thumbnail('full', array('alt' => get_the_title()));
-                                            }
-                                            ?>
-                                        </a>
+                                    <div class="blog-feed-slider-single-item swiper-slide">
+                                        <article>
+                                            <?php if (has_post_thumbnail()) : ?>
+                                                <div class="image">
+                                                    <?php the_post_thumbnail('full', array('alt' => get_the_title())); ?>
+                                                </div>
+                                            <?php endif; ?>
 
-                                        <div class="content">
-                                            <ul class="blog-meta meta-box">
-                                                <li>
-                                                    <span class="date icon-space-right">
-                                                        <i class="icofont-ui-calendar" aria-hidden="true"></i>
-                                                        <span class="text">
-                                                            <?php
-                                                            if ($event_date) {
-                                                                if (is_numeric($event_date)) {
-                                                                    $timestamp = $event_date;
-                                                                } else {
-                                                                    $timestamp = strtotime($event_date);
-                                                                }
+                                            <div class="content">
+                                                <ul class="blog-meta meta-box">
+                                                    <li>
+                                                        <span class="date">
+                                                            <span class="visually-hidden">Event Date:</span>
+                                                            <i class="icofont-ui-calendar" aria-hidden="true"></i>
+                                                            <span class="text">
+                                                                <?php
+                                                                if ($event_date) {
+                                                                    if (is_numeric($event_date)) {
+                                                                        $timestamp = $event_date;
+                                                                    } else {
+                                                                        $timestamp = strtotime($event_date);
+                                                                    }
 
-                                                                if ($timestamp !== false) {
-                                                                    echo esc_html(date_i18n('d.m.Y', $timestamp));
+                                                                    if ($timestamp !== false) {
+                                                                        echo esc_html(date_i18n('d.m.Y', $timestamp));
+                                                                    } else {
+                                                                        echo esc_html($event_date);
+                                                                    }
                                                                 } else {
-                                                                    echo esc_html($event_date);
+                                                                    echo esc_html(get_the_date('d.m.Y'));
                                                                 }
-                                                            } else {
-                                                                echo esc_html(get_the_date('d.m.Y'));
-                                                            }
-                                                            ?>
+                                                                ?>
+                                                            </span>
                                                         </span>
+                                                    </li>
+                                                </ul>
+
+                                                <h4 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+
+                                                <a href="<?php the_permalink(); ?>" class="btn btn-sm btn-outline-primary text-uppercase">
+                                                    <span>
+                                                        <?php
+                                                        if (function_exists('icl_object_id')) {
+                                                            $current_language = apply_filters('wpml_current_language', NULL);
+                                                            echo $current_language == 'ro' ? 'citește mai mult' : 'read more';
+                                                        } else {
+                                                            echo 'read more';
+                                                        }
+                                                        ?>
+                                                        <i class="icofont-double-right icon-space-left" aria-hidden="true"></i>
                                                     </span>
-                                                </li>
-                                            </ul>
-
-                                            <h3 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
-                                            <a href="<?php the_permalink(); ?>" class="btn btn-sm btn-outline-primary text-uppercase">
-                                                <span>
-                                                    <?php
-                                                    if (function_exists('icl_object_id')) {
-                                                        $current_language = apply_filters('wpml_current_language', NULL);
-                                                        echo $current_language == 'ro' ? 'citește mai mult' : 'read more';
-                                                    } else {
-                                                        echo 'read more';
-                                                    }
-                                                    ?>
-                                                    <i class="icofont-double-right icon-space-left" aria-hidden="true"></i>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </article>
+                                                </a>
+                                            </div>
+                                        </article>
+                                    </div>
                                     <!-- End Blog Feed Single Item  -->
                             <?php
                                 endwhile;
