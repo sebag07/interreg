@@ -90,7 +90,7 @@
 							$border_class = ($counter % 2 === 0) ? 'textimonial-curve-border-center' : 'textimonial-curve-border-outside';
 					?>
 						<li class="nav-item textimonial-curve-border <?php echo $border_class; ?>">
-							<button class="nav-link <?php echo $active_class; ?>" data-bs-toggle="tab" data-bs-target="#testimonial-<?php echo $counter; ?>">
+							<button class="nav-link <?php echo $active_class; ?>" data-bs-toggle="tab" data-bs-target="#testimonial-<?php echo $counter; ?>" tabindex="0">
 								<?php if ($member_image) : ?>
 									<img src="<?php echo esc_url($member_image['url']); ?>" alt="<?php echo esc_attr($member_name); ?>">
 								<?php else : ?>
