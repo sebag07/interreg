@@ -55,8 +55,6 @@ get_header();
                                             echo '<img class="interreg-main-logo" src="' . get_template_directory_uri() . '/assets/images/company-logo/interreg-ro.png" alt="Interreg logo">';
                                         }
                                     ?>
-
-                                    <img class="interreg-main-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/interreg.png" alt="Interreg logo">
                                     
                                     <?php if (!empty($title)) : ?>
                                         <h1 class="title" id="slide-title-<?php echo esc_attr($slide_count); ?>"><?php echo esc_html($title); ?></h1>
