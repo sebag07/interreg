@@ -132,6 +132,8 @@ get_header();
                     $about_image = get_field('about_background_image');
                     $left_content = get_field('about_left_content');
                     $right_content = get_field('about_right_content');
+                    $about_button_text = get_field('about_button_text');
+                    $about_button_url = get_field('about_button_url');
                     ?>
                     <?php if ($about_image) : ?>
                         <div class="image">
@@ -144,6 +146,12 @@ get_header();
                     <div class="content">
                         <div class="left" role="complementary">
                             <?php echo wp_kses_post($left_content); ?>
+                            <?php if (!empty($about_button_url) && !empty($about_button_text)) : ?>
+                            <a href="<?php echo esc_url($about_button_url); ?>" class="btn btn-lg btn-primary">
+                                <?php echo esc_html($about_button_text); ?>
+                                <i class="icofont-double-right icon-space-left" aria-hidden="true"></i>
+                            </a>
+                            <?php endif; ?>
                         </div>
                         <div class="right" role="main">
                             <?php echo wp_kses_post($right_content); ?>
