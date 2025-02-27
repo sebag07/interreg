@@ -84,7 +84,7 @@
 
     <!-- .....:::::: Start Mobile Header Section :::::.... -->
     <div class="mobile-header d-block d-lg-none" role="banner">
-        <div class="container">
+        <div class="container-lg">
             <div class="row align-items-center justify-content-between">
                 <div class="col">
                     <div class="mobile-logo">
