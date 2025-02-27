@@ -41,6 +41,21 @@ get_header();
                                         <h2 class="sup-title"><?php echo esc_html($sup_title); ?></h2>
                                     <?php endif; ?>
                                     
+
+                                    <?php
+                                        if (function_exists('icl_object_id')) {
+                                            $current_language = apply_filters('wpml_current_language', NULL);
+                                            echo $current_language == 'ro' ? 'CONTACTEAZĂ-NE' : 'CONTACT US';
+                                            if($current_language == 'ro') {
+                                                echo '<img class="interreg-main-logo" src="' . get_template_directory_uri() . '/assets/images/company-logo/interreg-ro.png" alt="Interreg logo">';
+                                            } else {
+                                                echo '<img class="interreg-main-logo" src="' . get_template_directory_uri() . '/assets/images/company-logo/interreg.png" alt="Interreg logo">';
+                                            }
+                                        } else {
+                                            echo '<img class="interreg-main-logo" src="' . get_template_directory_uri() . '/assets/images/company-logo/interreg-ro.png" alt="Interreg logo">';
+                                        }
+                                    ?>
+
                                     <img class="interreg-main-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/company-logo/interreg.png" alt="Interreg logo">
                                     
                                     <?php if (!empty($title)) : ?>
