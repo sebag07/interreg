@@ -146,15 +146,15 @@ get_header();
                     <div class="content">
                         <div class="left" role="complementary">
                             <?php echo wp_kses_post($left_content); ?>
+                        </div>
+                        <div class="right" role="main">
+                            <?php echo wp_kses_post($right_content); ?>
                             <?php if (!empty($about_button_url) && !empty($about_button_text)) : ?>
                             <a href="<?php echo esc_url($about_button_url); ?>" class="btn btn-lg btn-primary">
                                 <?php echo esc_html($about_button_text); ?>
                                 <i class="icofont-double-right icon-space-left" aria-hidden="true"></i>
                             </a>
                             <?php endif; ?>
-                        </div>
-                        <div class="right" role="main">
-                            <?php echo wp_kses_post($right_content); ?>
                         </div>
                     </div>
                     <!-- End About Display Inner Content -->
