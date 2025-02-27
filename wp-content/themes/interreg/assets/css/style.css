@@ -20550,3 +20550,28 @@ textarea:focus,
 .otgs-development-site-front-end {
   display: none !important;
 }
+
+.project-content-box .title {
+  margin-bottom: 25px;
+}
+
+.project-info .title-info {
+  width: 100% !important;
+  max-width: 265px !important;
+}
+
+.project-content-box .sub-title {
+  margin-bottom: 20px;
+}
+
+@media (max-width:1400px) {
+  .project-info li {
+    flex-direction: column;
+  }
+  .project-info .title-info::after {
+    visibility: hidden;
+  }
+  .project-info .title-info {
+    max-width: 100%;
+  }
+}
