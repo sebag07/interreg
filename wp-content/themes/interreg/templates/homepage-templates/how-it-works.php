@@ -63,10 +63,10 @@
 
                         <!-- Work Processing Arrow -->
                         <div class="working-process-display-arrow arrow-1" aria-hidden="true">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-arrow-1.png" alt="" width="100" height="50">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-arrow-1.png" alt="Display Arrow 1" style="width: auto; height: auto;" width="100" height="50">
                         </div>
                         <div class="working-process-display-arrow arrow-2" aria-hidden="true">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-arrow-2.png" alt="" width="100" height="50">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/working-process-arrow-2.png" alt="Display Arrow 2" style="width: auto; height: auto;" width="100" height="50">
                         </div>
 
                     </div>

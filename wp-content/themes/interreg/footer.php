@@ -118,24 +118,24 @@
                     </div>
                 </div>
                 <div class="col-xl-auto col-md-6 col-12">
-                <div class="footer-widget-single-item">
+                <div class="footer-widget-single-item asdf">
                         <h3 class="title">
                             <?php
                             $current_language = apply_filters('wpml_current_language', NULL);
                             echo $current_language == 'ro' ? 'NAVIGAȚIE' : 'NAVIGATION';
                             ?>
                         </h3>
-                        <ul class="footer-nav">
+                        <div class="footer-nav">
                         <?php
                             wp_nav_menu(array(
                                 'theme_location' => 'primary-menu',
                                 'menu_class'     => 'mobile-menu',
-                                'container'      => false,
-                                'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
+                                'container'      => true,
+                                'items_wrap'     => '<ul class="footer-nav">%3$s</ul>',
                                 'walker'         => new Walker_Nav_Menu()
                             ));
                         ?>
-                        </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-auto col-md-6 col-12">
@@ -177,8 +177,7 @@
                                 ?>
                                     <li>
                                         <a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer">
-                                            <span class="sr-only"><?php echo esc_html($text); ?></span>
-                                            <i class="icofont-<?php echo strtolower($text); ?>" aria-hidden="true"></i>
+                                            <?php echo esc_html($text); ?>
                                         </a>
                                     </li>
                                 <?php endwhile; ?>

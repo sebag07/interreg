@@ -1,7 +1,7 @@
 <!-- Start Client Logo Display Section -->
 <section class="client-logo-display-section section-top-space" aria-labelledby="client-logo-section-title">
     <div class="client-logo-display-wrapper">
-        <div class="container border-bottom-thick" style="display: flex; flex-direction: column; gap: 50px; padding-bottom: 50px;">
+        <div class="container" style="display: flex; flex-direction: column; gap: 50px; padding-bottom: 50px;">
             <h2 id="client-logo-section-title" class="sr-only">
 			<?php
                 $current_language = get_locale();
