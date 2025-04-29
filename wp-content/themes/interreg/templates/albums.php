@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Evenimente
+ * Template Name: Albume
  */
 
 get_header();
@@ -49,13 +49,13 @@ get_header();
     <!-- End Breadcrumb Section -->
 
     <!-- Start Blog Feed Display Section -->
-    <section class="blog-section section-inner-gap" aria-label="<?php echo esc_attr__('Events', 'transfrontaliera'); ?>">
+    <section class="blog-section section-inner-gap" aria-label="<?php echo esc_attr__('Albums', 'transfrontaliera'); ?>">
         <div class="blog-section-wrapper">
             <div class="container">
                 <div class="row">
                     <?php
                     $args = array(
-                        'post_type' => 'evenimente',
+                        'post_type' => 'album',
                         'posts_per_page' => 6
                     );
                     $query = new WP_Query($args);
@@ -104,9 +104,9 @@ get_header();
                                             <?php
                                             if (function_exists('icl_object_id')) {
                                                 $current_language = apply_filters('wpml_current_language', NULL);
-                                                echo $current_language == 'ro' ? 'citește mai mult' : 'read more';
+                                                echo $current_language == 'ro' ? 'Descoperă Album' : 'Discover Album';
                                             } else {
-                                                echo 'read more';
+                                                echo 'Discover Album';
                                             }
                                             ?>
                                             <i class="icofont-double-right icon-space-left" aria-hidden="true"></i>

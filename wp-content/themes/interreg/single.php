@@ -2,7 +2,6 @@
 get_header();
 ?>
 
-
         <!-- .....:::::: Start Breadcrumb Section :::::.... -->
         <div class="breadcrumb-section">
             <div class="breadcrumb-wrapper">

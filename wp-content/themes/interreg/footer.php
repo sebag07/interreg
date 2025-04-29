@@ -140,11 +140,43 @@
                 </div>
                 <div class="col-xl-auto col-md-6 col-12">
                     <div class="footer-widget-single-item">
-                        <h2 class="title">QUICK LINKS</h2>
+                        <h2 class="title">
+                            <?php
+                            $current_language = apply_filters('wpml_current_language', NULL);
+                            echo $current_language == 'ro' ? 'LINKURI RAPIDE' : 'QUICK LINKS';
+                            ?>
+                        </h2>
                         <ul class="footer-nav" aria-label="Quick Links">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Cookie Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">
+                                <?php
+                                    if (function_exists('icl_object_id')) {
+                                        $current_language = apply_filters('wpml_current_language', NULL);
+                                        echo $current_language == 'ro' ? 'Politica de confidențialitate' : 'Privacy Policy';
+                                    } else {
+                                        echo 'Privacy Policy';
+                                    }
+                                ?>
+                            </a></li>
+                            <li><a href="#">
+                                <?php
+                                    if (function_exists('icl_object_id')) {
+                                        $current_language = apply_filters('wpml_current_language', NULL);
+                                        echo $current_language == 'ro' ? 'Politica de cookie-uri' : 'Cookie Policy';
+                                    } else {
+                                        echo 'Cookie Policy';
+                                    }
+                                ?>
+                            </a></li>
+                            <li><a href="#">
+                                <?php
+                                    if (function_exists('icl_object_id')) {
+                                        $current_language = apply_filters('wpml_current_language', NULL);
+                                        echo $current_language == 'ro' ? 'Termeni și condiții' : 'Terms & Conditions';
+                                    } else {
+                                        echo 'Terms & Conditions';
+                                    }
+                                ?>
+                            </a></li>
                         </ul>
                     </div>
                 </div>
@@ -162,7 +194,7 @@
                         <div class="footer-copyright">
                             <p class="copyright-text">
                                 &copy; <?php echo date('Y'); ?> 
-                                <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">Transfrtrontaliera</a> Made with <span class="sr-only">love</span><i class="icofont-heart" aria-hidden="true"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a>
+                                <a href="<?php echo esc_url(apply_filters('wpml_home_url', get_home_url())); ?>">Transfrontaliera</a> Made with <span class="sr-only">love</span><i class="icofont-heart" aria-hidden="true"></i> by <a href="https://ghem.app/" target="_blank">Ghem</a>
                             </p>
                         </div>
                     </div>

@@ -15715,6 +15715,19 @@ input, textarea {
   font-size: 26px;
 }
 
+.photo-album-item {
+  height: 300px;
+}
+
+.photo-album-item .default-slider-item {
+  height: 100%;
+}
+
+.photo-album-item .default-slider-item .image {
+  border-radius: 0;
+  height: 100%;
+}
+
 .default-slider-item {
   position: relative;
   -webkit-backface-visibility: hidden;
@@ -15725,7 +15738,8 @@ input, textarea {
 }
 .default-slider-item .image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 .default-slider-item .content {
   position: absolute;
@@ -17977,6 +17991,10 @@ input, textarea {
   .blog-feed-slider {
     padding-left: 22px;
   }
+}
+
+.blog-section-wrapper .blog-feed-slider-single-item .image img {
+  max-height: 400px;
 }
 
 .blog-feed-slider-single-item .image {
